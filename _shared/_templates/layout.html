@@ -1,0 +1,57 @@
+{# Copyright (c) 2026 TiaC Systems   SPDX-License-Identifier: Apache-2.0 #}
+{% extends "!layout.html" %}
+
+{% block sidebartitle %}
+  {%- set _logo_url = logo_url|default(pathto('_static/' + (logo or ""), 1)) %}
+  {%- set _root_doc = root_doc|default(master_doc) %}
+  <a href="{{ pathto(_root_doc) }}"{% if not theme_logo_only %} class="icon icon-home"{% endif %}>
+    {% if not theme_logo_only %}{{ project }}{% endif %}
+    {%- if logo or logo_url %}
+      <img src="{{ _logo_url }}" class="logo" alt="{{ _('Logo') }}"/>
+    {%- endif %}
+  </a>
+
+  <div class="project-version">Version {{ version }}</div>
+
+  {%- if READTHEDOCS or DEBUG %}
+    {%- if theme_version_selector or theme_language_selector %}
+      <div class="switch-menus">
+        <div class="version-switch"></div>
+        <div class="language-switch"></div>
+      </div>
+    {%- endif %}
+  {%- endif %}
+
+  {%- include "searchbox.html" %}
+{% endblock %}
+
+{% block menu %}
+  {{ super() }}
+  {% if reference_groups %}
+  <div class="toctree-wrapper compound reference-groups-wrapper">
+    {% for group in reference_groups %}
+    {%- if group.mode == "single_doc_title_merge" and group.links|length == 1 %}
+    <p class="caption reference-group-caption" role="heading">
+      <a class="reference external reference-group-caption-link" href="{{ group.links[0].href }}">{{ group.links[0].label }}</a>
+    </p>
+    {%- elif group.display in ("collapsed_at_opening", "not_collapsed_at_opening") %}
+    <details class="reference-group-details"{% if group.display == "not_collapsed_at_opening" %} open{% endif %}>
+      <summary class="caption reference-group-caption" role="heading">{{ group.title }}</summary>
+      <ul>
+        {% for link in group.links %}
+        <li class="toctree-l1"><a class="reference external reference-group-link" href="{{ link.href }}">{{ link.label }}</a></li>
+        {% endfor %}
+      </ul>
+    </details>
+    {%- else %}
+    <p class="caption reference-group-caption" role="heading"><span class="caption-text">{{ group.title }}</span></p>
+    <ul>
+      {% for link in group.links %}
+      <li class="toctree-l1"><a class="reference external reference-group-link" href="{{ link.href }}">{{ link.label }}</a></li>
+      {% endfor %}
+    </ul>
+    {%- endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
+{% endblock %}
