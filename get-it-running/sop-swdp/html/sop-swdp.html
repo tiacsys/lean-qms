@@ -1,0 +1,1048 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOP-Software — Software Development Procedure &mdash; SOP-Software — Software Development Procedure 32e274c</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=4580e023" />
+      <link rel="stylesheet" type="text/css" href="_static/draft.css?v=bcd82943" />
+
+  
+    <link rel="shortcut icon" href="_static/bridle-favicon.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=4940246b"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MyProject — Software Development Plan" href="appendix/tpl-swdp.html" />
+    <link rel="prev" title="SOP-Software — Software Development Procedure" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+  <a href="index.html" class="icon icon-home">
+    SOP-Software — Software Development Procedure
+      <img src="_static/bridle-logo.svg" class="logo" alt="Logo"/>
+  </a>
+
+  <div class="project-version">Version 32e274c</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SOP-Software — Software Development Procedure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-control">Document Control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#purpose">Purpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scope">Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#change-history">Change History</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#document-content">Document Content</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#roles">Roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lifecycle-activities">Lifecycle Activities</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#appendix">Appendix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#glossary">Glossary</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general-terms">General Terms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qms-document-types">QMS Document Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#identifier-prefixes">Identifier Prefixes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  
+  <div class="toctree-wrapper compound reference-groups-wrapper">
+    
+    <p class="caption reference-group-caption" role="heading">
+      <a class="reference external reference-group-caption-link" href="https://tiacsys.github.io/lean-qms/get-it-running/qms-overview/html/index.html">QMS Overview</a>
+    </p>
+    
+    <p class="caption reference-group-caption" role="heading"><span class="caption-text">Standard Operating Procedures</span></p>
+    <ul>
+      
+      <li class="toctree-l1"><a class="reference external reference-group-link" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-docctl/html/index.html">SOP Document Control</a></li>
+      
+      <li class="toctree-l1"><a class="reference external reference-group-link" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-req_design/html/index.html">SOP Requirement and Design</a></li>
+      
+      <li class="toctree-l1"><a class="reference external reference-group-link" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-impl/html/index.html">SOP Implementation</a></li>
+      
+      <li class="toctree-l1"><a class="reference external reference-group-link" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-verif/html/index.html">SOP Verification</a></li>
+      
+      <li class="toctree-l1"><a class="reference external reference-group-link" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-cybersec/html/index.html">SOP Cybersecurity</a></li>
+      
+      <li class="toctree-l1"><a class="reference external reference-group-link" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-toolval/html/index.html">SOP Tool Validation</a></li>
+      
+      <li class="toctree-l1"><a class="reference external reference-group-link" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-soupval/html/index.html">SOP SouP Validation</a></li>
+      
+    </ul>
+    
+    <details class="reference-group-details">
+      <summary class="caption reference-group-caption" role="heading">Records</summary>
+      <ul>
+        
+        <li class="toctree-l1"><a class="reference external reference-group-link" href="https://tiacsys.github.io/lean-qms/get-it-running/ptcc_kempert-volker_001/html/index.html">PTCC - Volker Kempert</a></li>
+        
+      </ul>
+    </details>
+    
+  </div>
+  
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SOP-Software — Software Development Procedure</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">SOP-Software — Software Development Procedure</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/sop-swdp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sop-software-software-development-procedure">
+<span id="sop-swdp"></span><h1>SOP-Software — Software Development Procedure<a class="headerlink" href="#sop-software-software-development-procedure" title="Link to this heading"></a></h1>
+<nav class="contents local" id="table-of-content">
+<p class="topic-title">Table of Content</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#document-control" id="id4">Document Control</a></p>
+<ul>
+<li><p><a class="reference internal" href="#overview" id="id5">Overview</a></p></li>
+<li><p><a class="reference internal" href="#purpose" id="id6">Purpose</a></p></li>
+<li><p><a class="reference internal" href="#scope" id="id7">Scope</a></p></li>
+<li><p><a class="reference internal" href="#change-history" id="id8">Change History</a></p></li>
+<li><p><a class="reference internal" href="#references" id="id9">References</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#document-content" id="id10">Document Content</a></p>
+<ul>
+<li><p><a class="reference internal" href="#roles" id="id11">Roles</a></p></li>
+<li><p><a class="reference internal" href="#lifecycle-activities" id="id12">Lifecycle Activities</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id1" id="id13">Overview</a></p></li>
+<li><p><a class="reference internal" href="#planning-phase" id="id14">Planning Phase</a></p></li>
+<li><p><a class="reference internal" href="#develop-and-software-verify-phase" id="id15">Develop and Software Verify Phase</a></p></li>
+<li><p><a class="reference internal" href="#production-software-and-comfort-feature-phase" id="id16">Production Software and Comfort Feature Phase</a></p></li>
+<li><p><a class="reference internal" href="#maintenance-phase" id="id17">Maintenance Phase</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#glossary" id="id18">Glossary</a></p>
+<ul>
+<li><p><a class="reference internal" href="#general-terms" id="id19">General Terms</a></p></li>
+<li><p><a class="reference internal" href="#qms-document-types" id="id20">QMS Document Types</a></p></li>
+<li><p><a class="reference internal" href="#identifier-prefixes" id="id21">Identifier Prefixes</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="document-control">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Document Control</a><a class="headerlink" href="#document-control" title="Link to this heading"></a></h2>
+<table class="doc-ctrl docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Document Id</p></td>
+<td><p>sop-swdp</p></td>
+</tr>
+<tr class="row-odd"><td><p>Title</p></td>
+<td><p>SOP-Software — Software Development Procedure</p></td>
+</tr>
+<tr class="row-even"><td><p>Version</p></td>
+<td><p>1.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Owner</p></td>
+<td><p>QA</p></td>
+</tr>
+<tr class="row-even"><td><p>Classification</p></td>
+<td><p>SOP</p></td>
+</tr>
+<tr class="row-odd"><td><p>Based On Template</p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-even"><td><p>Author</p></td>
+<td><p>not-authored-yet</p></td>
+</tr>
+<tr class="row-odd"><td><p>Reviewed By</p></td>
+<td><p>not-reviewed-yet</p></td>
+</tr>
+<tr class="row-even"><td><p>Approved By</p></td>
+<td><p>not-approved-yet</p></td>
+</tr>
+<tr class="row-odd"><td><p>Approval Date</p></td>
+<td><p>not-approved-yet</p></td>
+</tr>
+<tr class="row-even"><td><p>Supersedes</p></td>
+<td><p>None</p></td>
+</tr>
+</tbody>
+</table>
+<p>The lean quality management system for <strong>medical software development</strong> is
+<strong>aligned to IEC 62304-supporting QMS expectations</strong>.</p>
+<section id="overview">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Overview</a><a class="headerlink" href="#overview" title="Link to this heading"></a></h3>
+<p>This <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-docctl/html/sop-docctl.html#term-SOP" title="(in Software Lifecycle Documentation Control Procedure v32e274c)"><span class="xref std std-term">SOP</span></a> defines procedures for software development of medical products.
+The procedure addresses the part of
+- Software requirement solicitation
+- Software design
+- Software implementation</p>
+<p>Other mandatory requirements of ISO 62304 like</p>
+<ul class="simple">
+<li><p>Software verification</p></li>
+<li><p>Software risk management</p></li>
+<li><p>Software tool validation</p></li>
+<li><p><a class="reference internal" href="#term-SouP"><span class="xref std std-term">SouP</span></a> validation</p></li>
+<li><p>Software configuration management</p></li>
+</ul>
+<p>are addressed in other SOP.</p>
+<p>The cyclic, iterative process that governs how requirements and design
+artefacts are elicited, structured, traced, and refined throughout all
+phases is defined in <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-req_design/html/sop-req_design.html#sop-req-design" title="(in SOP — Software Requirement and Design Procedure v32e274c)"><span>SOP — Software Requirement and Design Procedure</span></a>.</p>
+</section>
+<section id="purpose">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Purpose</a><a class="headerlink" href="#purpose" title="Link to this heading"></a></h3>
+<p>This procedure defines general proceduces for firmware and related
+software products of medical products in compliance with IEC 62304.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This SOP is <strong>not</strong> a software development plan.</p>
+<p>Thus, every software development plan is specific for project it is written
+for. It is intended that every project enforces the application of this
+<a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-docctl/html/sop-docctl.html#term-SOP" title="(in Software Lifecycle Documentation Control Procedure v32e274c)"><span class="xref std std-term">SOP</span></a>. and will also tailor the general procedures to the project</p>
+<p>A template of this <a class="reference internal" href="appendix/tpl-swdp.html"><span class="doc">MyProject — Software Development Plan</span></a>, is provided.</p>
+</div>
+</section>
+<section id="scope">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Scope</a><a class="headerlink" href="#scope" title="Link to this heading"></a></h3>
+<p>This <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-docctl/html/sop-docctl.html#term-SOP" title="(in Software Lifecycle Documentation Control Procedure v32e274c)"><span class="xref std std-term">SOP</span></a> should be appled to the software development of</p>
+<ul class="simple">
+<li><p>Embedded firmware</p></li>
+<li><p>Safety-related software tools</p></li>
+<li><p>Test software</p></li>
+<li><p>Internal libraries</p></li>
+</ul>
+<p>that is <strong>intended to be part of a medical product</strong>.</p>
+</section>
+<section id="change-history">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Change History</a><a class="headerlink" href="#change-history" title="Link to this heading"></a></h3>
+<p>The history of this document is recorded within the git repository by the
+commit messages. The following document history proposition is the result
+of a query to the git repository.</p>
+<ul>
+<li><p><strong>docs: add the software lifecycle SOPs</strong><span> by </span><em>Volker Kempert</em><span> at </span><em>2026-08-05 13:04:40</em></p>
+<p>Eight controlled SOPs (document control, software development,
+requirement &amp; design, implementation, verification, cybersecurity,
+tool validation, SouP validation), each its own Sphinx sub-project
+with its own PDF, plus their HTML-only appendix templates.
+
+Co-Authored-By: Claude Sonnet 5 &lt;noreply&#64;anthropic.com&gt;</p>
+</li>
+</ul>
+</section>
+<section id="references">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">References</a><a class="headerlink" href="#references" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://t2informatik.de/en/smartpedia/classification-peaks-model/?noredirect=en-US">Twin Peak Model</a></p></li>
+</ul>
+<p>Requirements of standards this SOP implements or complies with:</p>
+<ul class="simple">
+<li><p>IEC 62304:2006 + A1:2015 - Medical device software — Software life cycle processes
+- Clause 4.1 - Quality Management System</p></li>
+</ul>
+<p>Applied SOP’s</p>
+<ul class="simple">
+<li><p>SOP-DOCCTL <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-docctl/html/sop-docctl.html#sop-docctl" title="(in Software Lifecycle Documentation Control Procedure v32e274c)"><span>Software Lifecycle Documentation Control Procedure</span></a> - Each SOP is a controlled document, and so does
+the management of this SOP.</p></li>
+<li><p>SOP-REQ-DESIGN <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-req_design/html/sop-req_design.html#sop-req-design" title="(in SOP — Software Requirement and Design Procedure v32e274c)"><span>SOP — Software Requirement and Design Procedure</span></a> - Defines the artefact model,
+field conventions, traceability links, and the cyclic requirements-and-design
+process (Phases 1–6) applied in the Planning and Develop phases below.</p></li>
+</ul>
+</section>
+</section>
+<section id="document-content">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Document Content</a><a class="headerlink" href="#document-content" title="Link to this heading"></a></h2>
+<section id="roles">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Roles</a><a class="headerlink" href="#roles" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Role</p></th>
+<th class="head"><p>Responsibility</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Product Owner</p></td>
+<td><p>Defines needs and priorities</p></td>
+</tr>
+<tr class="row-odd"><td><p>System Engineer</p></td>
+<td><p>Defines system requirements</p></td>
+</tr>
+<tr class="row-even"><td><p>Software Engineer</p></td>
+<td><p>Design + implementation</p></td>
+</tr>
+<tr class="row-odd"><td><p>Reviewer</p></td>
+<td><p>Independent review</p></td>
+</tr>
+<tr class="row-even"><td><p>QA/RA</p></td>
+<td><p>Process compliance</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="lifecycle-activities">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Lifecycle Activities</a><a class="headerlink" href="#lifecycle-activities" title="Link to this heading"></a></h3>
+<section id="id1">
+<h4><a class="toc-backref" href="#id13" role="doc-backlink">Overview</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 14.3%" />
+<col style="width: 42.9%" />
+<col style="width: 28.6%" />
+<col style="width: 14.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Phase</p></th>
+<th class="head"><p>Activities</p></th>
+<th class="head"><p>Delivered Artifacts</p></th>
+<th class="head"><p>Gate</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Planning</p></td>
+<td><div class="line-block">
+<div class="line">Plan Software activities</div>
+<div class="line">- Establish development organization</div>
+<div class="line">- Define development approach</div>
+<div class="line">- Define verification</div>
+<div class="line">- Determine risk class</div>
+<div class="line">- Define config management</div>
+<div class="line">- Define tooling</div>
+<div class="line">- Establish drafts</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><a class="reference internal" href="#term-SwDP"><span class="xref std std-term">SwDP</span></a></div>
+<div class="line">preliminary <a class="reference internal" href="#term-SwRS"><span class="xref std std-term">SwRS</span></a></div>
+<div class="line">preliminary <a class="reference internal" href="#term-SwDS"><span class="xref std std-term">SwDS</span></a></div>
+</div>
+</td>
+<td><p>DevStart</p></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">Develop</div>
+<div class="line">and</div>
+<div class="line">(Software)</div>
+<div class="line">Verify</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">- Iterative update req, design</div>
+<div class="line">- Iterative detailed design,</div>
+<div class="line-block">
+<div class="line">risk assessment, detailed req</div>
+</div>
+<div class="line">- Justify risk class</div>
+<div class="line">- Iterative testplan, cases</div>
+<div class="line">- Establishment of development,</div>
+<div class="line-block">
+<div class="line">including CI, review,</div>
+<div class="line">static analysis, coverage</div>
+</div>
+<div class="line">- Tool validation</div>
+<div class="line">- SouP validation</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">Updated <a class="reference internal" href="#term-SwDP"><span class="xref std std-term">SwDP</span></a>,</div>
+<div class="line"><a class="reference internal" href="#term-SwRS"><span class="xref std std-term">SwRS</span></a>, <a class="reference internal" href="#term-DSwRS"><span class="xref std std-term">DSwRS</span></a></div>
+<div class="line"><a class="reference internal" href="#term-DSwDS"><span class="xref std std-term">DSwDS</span></a>, <a class="reference internal" href="#term-DSwDS"><span class="xref std std-term">DSwDS</span></a></div>
+<div class="line">All tool validations</div>
+<div class="line">All <a class="reference internal" href="#term-SouP"><span class="xref std std-term">SouP</span></a> validations</div>
+<div class="line"><a class="reference internal" href="#term-SwTP"><span class="xref std std-term">SwTP</span></a>, <a class="reference internal" href="#term-SwTR"><span class="xref std std-term">SwTR</span></a>, <a class="reference internal" href="#term-SwRN"><span class="xref std std-term">SwRN</span></a></div>
+</div>
+</td>
+<td><p>MVP-V&amp;VReady</p></td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">Prod &amp; Comfort</div>
+<div class="line">Software</div>
+<div class="line">Development</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">- Iterative Requirements and</div>
+<div class="line-block">
+<div class="line">design of comfort features</div>
+</div>
+<div class="line">- Implementation and test of</div>
+<div class="line-block">
+<div class="line">comfort features</div>
+</div>
+<div class="line">- Iterative testplan, cases updtes</div>
+<div class="line">- PCB production FCT - test software</div>
+<div class="line-block">
+<div class="line">development</div>
+</div>
+<div class="line">- PCB - factory deployment software</div>
+<div class="line">- Bugfixing of V&amp;V system test findings</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><a class="reference internal" href="#term-SwDP"><span class="xref std std-term">SwDP</span></a>, <a class="reference internal" href="#term-DSwDS"><span class="xref std std-term">DSwDS</span></a></div>
+<div class="line"><a class="reference internal" href="#term-SwRS"><span class="xref std std-term">SwRS</span></a>, <a class="reference internal" href="#term-DSwRS"><span class="xref std std-term">DSwRS</span></a></div>
+<div class="line">FCT SW released</div>
+<div class="line">Factory deployment</div>
+<div class="line">software released</div>
+<div class="line"><a class="reference internal" href="#term-SwTP"><span class="xref std std-term">SwTP</span></a>, <a class="reference internal" href="#term-SwTR"><span class="xref std std-term">SwTR</span></a>, <a class="reference internal" href="#term-SwRN"><span class="xref std std-term">SwRN</span></a></div>
+</div>
+</td>
+<td><p>ProdReady</p></td>
+</tr>
+<tr class="row-odd"><td><p>Maintenance</p></td>
+<td><div class="line-block">
+<div class="line">- Market Monitoring for incidents</div>
+<div class="line">- SouP monitoring for <a class="reference internal" href="#term-CVE"><span class="xref std std-term">CVE</span></a></div>
+<div class="line">- <a class="reference internal" href="#term-CAPA"><span class="xref std std-term">CAPA</span></a> process</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">New releases</div>
+<div class="line">that fix</div>
+<div class="line">incidents or CVE</div>
+</div>
+</td>
+<td><p>ProdReady</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="planning-phase">
+<h4><a class="toc-backref" href="#id14" role="doc-backlink">Planning Phase</a><a class="headerlink" href="#planning-phase" title="Link to this heading"></a></h4>
+<p>The planning phase determines essential prerequisites for effective
+development of medical software.</p>
+<section id="activity-establish-swdp">
+<h5>Activity - Establish SwDP<a class="headerlink" href="#activity-establish-swdp" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>Responsible:</dt><dd><p>Software Engineer, Product Owner</p>
+</dd>
+<dt>Guidance:</dt><dd><ul class="simple">
+<li><p>Use the <a class="reference internal" href="appendix/tpl-swdp.html"><span class="doc">MyProject — Software Development Plan</span></a> Template, that includes guidance</p></li>
+<li><p>Extensions or overwrites is possible, should be discussed with QMS team,
+in order to not violate regulatory needs dictetated by standards</p></li>
+</ul>
+</dd>
+<dt>Result, Provided Evidence:</dt><dd><ul class="simple">
+<li><p>Reviewed and approved <a class="reference internal" href="#term-SwDP"><span class="xref std std-term">SwDP</span></a> in QMS</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="activity-establish-development-team">
+<h5>Activity - Establish  Development Team<a class="headerlink" href="#activity-establish-development-team" title="Link to this heading"></a></h5>
+<dl>
+<dt>Responsible:</dt><dd><p>Software Engineer, Product Owner, QA</p>
+</dd>
+<dt>Guidance</dt><dd><p>All persons and their roles have to be named in the <a class="reference internal" href="#term-SwDP"><span class="xref std std-term">SwDP</span></a></p>
+</dd>
+<dt>Result, Provided Evidence:</dt><dd><p>All persons are aware of applicable <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-docctl/html/sop-docctl.html#term-SOP" title="(in Software Lifecycle Documentation Control Procedure v32e274c)"><span class="xref std std-term">SOP</span></a> ‘s, and understand their
+roles and responsibilities.</p>
+<p>All persons confirmed by filling in <span class="xref std std-ref">qms-overview:tpl-qms-comply</span> template and
+checking in project qms-git</p>
+</dd>
+</dl>
+</section>
+<section id="activity-preliminary-software-requirement-specification">
+<h5>Activity - Preliminary Software Requirement Specification<a class="headerlink" href="#activity-preliminary-software-requirement-specification" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>Responsible:</dt><dd><p>Software Engineer, Product Owner, System Engineer</p>
+</dd>
+<dt>Guidance</dt><dd><ul class="simple">
+<li><p>Prerequisite are
+- Established User Needs
+- Established top-level system requirements (with traces to user needs)
+- preliminary system design</p></li>
+<li><p>Use the <a class="reference internal" href="appendix/tpl-swrs.html"><span class="doc">MyProject — Software Development Requirement Specification</span></a> Template</p></li>
+<li><p>Follow <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-req_design/html/sop-req_design.html#sop-req-design" title="(in SOP — Software Requirement and Design Procedure v32e274c)"><span>SOP — Software Requirement and Design Procedure</span></a> for <code class="docutils literal notranslate"><span class="pre">req</span></code> artefact
+conventions: mandatory <code class="docutils literal notranslate"><span class="pre">level</span></code> and <code class="docutils literal notranslate"><span class="pre">id</span></code> fields, <code class="docutils literal notranslate"><span class="pre">concerns</span></code> for
+safety/cybersecurity items, and <code class="docutils literal notranslate"><span class="pre">derives</span></code> links to parent needs or
+system requirements.</p></li>
+</ul>
+</dd>
+<dt>Result, Provided Evidence:</dt><dd><ul class="simple">
+<li><p>Reviewed and approved <a class="reference internal" href="#term-SwRS"><span class="xref std std-term">SwRS</span></a></p></li>
+<li><p>in QMS</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="activity-preliminary-software-design-specification">
+<h5>Activity - Preliminary Software Design Specification<a class="headerlink" href="#activity-preliminary-software-design-specification" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>Responsible:</dt><dd><p>Software Engineer, Product Owner, System Engineer</p>
+</dd>
+<dt>Guidance</dt><dd><ul class="simple">
+<li><p>Prerequisite are
+- Preliminary system design
+- Preliminary <a class="reference internal" href="#term-SwRS"><span class="xref std std-term">SwRS</span></a></p></li>
+<li><p>Use the <a class="reference internal" href="appendix/tpl-swds.html"><span class="doc">MyProject — Software Development Design Specification</span></a> Template
+- Context diagram is expected
+- Software architecture styles are expected
+- Optionally 1st Level Component Breakdown</p></li>
+<li><p>Follow <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-req_design/html/sop-req_design.html#sop-req-design" title="(in SOP — Software Requirement and Design Procedure v32e274c)"><span>SOP — Software Requirement and Design Procedure</span></a> for <code class="docutils literal notranslate"><span class="pre">spec</span></code> artefact
+conventions: mandatory <code class="docutils literal notranslate"><span class="pre">level</span></code> and <code class="docutils literal notranslate"><span class="pre">id</span></code> fields, <code class="docutils literal notranslate"><span class="pre">implements</span></code> links
+to the requirements being realised, and <code class="docutils literal notranslate"><span class="pre">concerns</span></code> for safety-relevant
+design decisions.</p></li>
+</ul>
+</dd>
+<dt>Result, Provided Evidence:</dt><dd><ul class="simple">
+<li><p>Reviewed and approved <a class="reference internal" href="#term-SwDS"><span class="xref std std-term">SwDS</span></a></p></li>
+<li><p>in QMS</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+<section id="develop-and-software-verify-phase">
+<h4><a class="toc-backref" href="#id15" role="doc-backlink">Develop and Software Verify Phase</a><a class="headerlink" href="#develop-and-software-verify-phase" title="Link to this heading"></a></h4>
+<p>Twin Peak model for software requirements, design and risk assessment.</p>
+<p>The following activities are expected to be performed <strong>iteratively</strong>, and in parallel,
+according to the twin peak model for software requirements and design
+extended by the software risk assessment, as formalised in
+<a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-req_design/html/sop-req_design.html#sop-req-design" title="(in SOP — Software Requirement and Design Procedure v32e274c)"><span>SOP — Software Requirement and Design Procedure</span></a> (Phases 2–5).</p>
+<ul class="simple">
+<li><p>Detailed Software Requirement Specification</p></li>
+<li><p>Detailed Software Design Specification</p></li>
+<li><p>Software Risk Assessment</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The iteration ends when all the following conditions are met:</p>
+<ul class="simple">
+<li><p>All software requirements are traced to system requirements,
+or are traced to user needs
+or are traced to risk control measures</p></li>
+<li><p>All detailed software requirements are traced to software requirements
+or are traced to software design elements,
+or are traced to risk control measures</p></li>
+<li><p>All detailedsoftware design elements are traced to software design elements</p></li>
+<li><p>or are traced to (detailed) software requirements</p></li>
+<li><p>All software hazards are identified, and have risk control measures or are accepted</p></li>
+<li><p>The software risk class is justified and accepted</p></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This SOP is necessary for <strong>Class B</strong> software development.</p>
+<p>It is not sufficient for <strong>Class C</strong> software development,
+where additional activities are expected, like formal verification, formal methods,
+more detailed design, more tests, more documentation more reviews,
+more stringent <a class="reference internal" href="#term-SouP"><span class="xref std std-term">SouP</span></a> validation,
+more stringent tool validation, more stringent requirements for software
+configuration management, and software maintenance.</p>
+</div>
+<section id="activity-detailed-software-requirement-specification">
+<h5>Activity - Detailed Software Requirement Specification<a class="headerlink" href="#activity-detailed-software-requirement-specification" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>Responsible:</dt><dd><p>Software Engineer, Product Owner, System Engineer</p>
+</dd>
+<dt>Guidance</dt><dd><ul class="simple">
+<li><p>Prerequisite are
+- Preliminary system design
+- Preliminary <a class="reference internal" href="#term-SwRS"><span class="xref std std-term">SwRS</span></a>
+- Preliminary <a class="reference internal" href="#term-SwDS"><span class="xref std std-term">SwDS</span></a></p></li>
+<li><p>Extend the preliminary <a class="reference internal" href="#term-SwRS"><span class="xref std std-term">SwRS</span></a> to a detailed <a class="reference internal" href="#term-DSwRS"><span class="xref std std-term">DSwRS</span></a>, i.e. establish a new version</p></li>
+<li><p>Follow <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-req_design/html/sop-req_design.html#sop-req-design" title="(in SOP — Software Requirement and Design Procedure v32e274c)"><span>SOP — Software Requirement and Design Procedure</span></a> for <code class="docutils literal notranslate"><span class="pre">req</span></code> artefact
+conventions: mandatory <code class="docutils literal notranslate"><span class="pre">level</span></code> and <code class="docutils literal notranslate"><span class="pre">id</span></code> fields, <code class="docutils literal notranslate"><span class="pre">concerns</span></code> for
+safety/cybersecurity items, <code class="docutils literal notranslate"><span class="pre">derives</span></code> links to parent needs or system
+requirements, and <code class="docutils literal notranslate"><span class="pre">verifies</span></code> links from test cases.</p></li>
+</ul>
+</dd>
+<dt>Result, Provided Evidence:</dt><dd><ul class="simple">
+<li><p>Reviewed and approved updated version <a class="reference internal" href="#term-SwRS"><span class="xref std std-term">SwRS</span></a> and <a class="reference internal" href="#term-DSwRS"><span class="xref std std-term">DSwRS</span></a></p></li>
+<li><p>All detailed software requirements are traced to software design elements or are traced to software requirements</p></li>
+<li><p>All software requirements are traced to system requirements, or are traced to user needs or are traced to risk control measures</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Requirements in General</p>
+<p>Requirements shall be:</p>
+<ul class="simple">
+<li><p>uniquely identified</p></li>
+<li><p>testable</p></li>
+<li><p>version controlled</p></li>
+<li><p>traceable</p></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Traceability of requirements</p>
+<p>The traceability of requirements is a key aspect of the software development
+process, as it ensures that all requirements are properly implemented and
+verified. It also helps to identify any gaps or inconsistencies in the
+requirements, and to ensure that all requirements are properly tested.</p>
+<p>Traceability is assured by a sphinx-needs tool that allows to link requirements
+to needs, risk mitigation measures,
+design elements, test cases, and other.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Storage of requirements</p>
+<p>Requirements are stored in sphinx-needs and reqSuite requirement management tools.
+sphinx-needs integrates smoothly into to software development processes, whereby
+reqSuite is more suitable for complex complete projects that cross more engineering domains.</p>
+<p>The leading system is reqSuite. sphinx-needs imports items from reqSuite at certain baselines.
+(milestones) ReqSuite does not import items from sphinx-needs. Thus,
+detailed software requirements, software design, software test cases and software test
+result are stored in sphinx-needs, whereas software requirements are stored in reqSuite.</p>
+<p>Traceability is assured by linking items in sphinx-needs to items in reqSuite,
+and by linking items in sphinx-needs to each other.</p>
+</div>
+</section>
+<section id="activity-detailed-software-design-specification">
+<h5>Activity - Detailed Software Design Specification<a class="headerlink" href="#activity-detailed-software-design-specification" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>Responsible:</dt><dd><p>Software Engineer, Software Architect</p>
+</dd>
+<dt>Guidance</dt><dd><ul class="simple">
+<li><p>Prerequisite are
+- Preliminary system design
+- Preliminary <a class="reference internal" href="#term-SwRS"><span class="xref std std-term">SwRS</span></a> and <a class="reference internal" href="#term-DSwRS"><span class="xref std std-term">DSwRS</span></a>
+- Preliminary <a class="reference internal" href="#term-SwDS"><span class="xref std std-term">SwDS</span></a></p></li>
+<li><p>Extend the preliminary <a class="reference internal" href="#term-SwDS"><span class="xref std std-term">SwDS</span></a> to a detailed <a class="reference internal" href="#term-DSwDS"><span class="xref std std-term">DSwDS</span></a>, i.e. establish a new version</p></li>
+<li><p>Follow <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-req_design/html/sop-req_design.html#sop-req-design" title="(in SOP — Software Requirement and Design Procedure v32e274c)"><span>SOP — Software Requirement and Design Procedure</span></a> for <code class="docutils literal notranslate"><span class="pre">spec</span></code> artefact
+conventions: mandatory <code class="docutils literal notranslate"><span class="pre">level</span></code> and <code class="docutils literal notranslate"><span class="pre">id</span></code> fields, <code class="docutils literal notranslate"><span class="pre">implements</span></code> links
+to the requirements being realised, and <code class="docutils literal notranslate"><span class="pre">concerns</span></code> for safety-relevant
+design decisions.</p></li>
+</ul>
+</dd>
+<dt>Result, Provided Evidence:</dt><dd><ul class="simple">
+<li><p>Reviewed and approved updated version:term:<cite>SwDS</cite> and <a class="reference internal" href="#term-DSwDS"><span class="xref std std-term">DSwDS</span></a></p></li>
+<li><p>All detailed software design elements are traced to software design elements or are traced to (detailed)software requirements</p></li>
+<li><p>All architectural views are available (structural, behavioral, deployment)</p></li>
+<li><p>All Interfaces and protocols are defined</p></li>
+<li><p>All software modules are defined</p></li>
+<li><p>All SouP are identified</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="activity-software-risk-assessment">
+<h5>Activity - Software Risk Assessment<a class="headerlink" href="#activity-software-risk-assessment" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>Responsible:</dt><dd><p>Software Engineer, Product Owner, System Engineer</p>
+</dd>
+<dt>Guidance</dt><dd><ul class="simple">
+<li><p>Prerequisite are
+- Preliminary system design
+- Preliminary <a class="reference internal" href="#term-SwRS"><span class="xref std std-term">SwRS</span></a>
+- Preliminary <a class="reference internal" href="#term-SwDS"><span class="xref std std-term">SwDS</span></a></p></li>
+<li><p>For how hazard, risk, and risk-control measure requirements are authored
+as <code class="docutils literal notranslate"><span class="pre">hazard</span></code>, <code class="docutils literal notranslate"><span class="pre">risk</span></code>, and <code class="docutils literal notranslate"><span class="pre">req</span></code> artefacts with <code class="docutils literal notranslate"><span class="pre">concerns:</span> <span class="pre">safety</span></code>,
+<code class="docutils literal notranslate"><span class="pre">mitigates</span></code>, and <code class="docutils literal notranslate"><span class="pre">causes</span></code> links, follow
+<a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-req_design/html/sop-req_design.html#sop-req-design" title="(in SOP — Software Requirement and Design Procedure v32e274c)"><span>SOP — Software Requirement and Design Procedure</span></a> Phase 3b.</p></li>
+</ul>
+</dd>
+<dt>Result, Provided Evidence:</dt><dd><p>Reviewed and approved <a class="reference internal" href="#term-SwRAR"><span class="xref std std-term">SwRAR</span></a> in QMS, that includes:
+- A <a class="reference internal" href="#term-Software-Risk-Class"><span class="xref std std-term">Software Risk Class</span></a> justification
+- List of identified <a class="reference internal" href="#term-Software-Hazard"><span class="xref std std-term">software hazard</span></a> s and their <a class="reference internal" href="#term-Risk-Control-Measure"><span class="xref std std-term">risk control measure</span></a> s
+- Optional <a class="reference internal" href="#term-FTA"><span class="xref std std-term">FTA</span></a> analysis for critical hazardous situations
+- Optional <a class="reference internal" href="#term-FMEA"><span class="xref std std-term">FMEA</span></a></p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Software Risk Class</p>
+<p>The software risk class is determined by the severity of the harm that
+can be caused by a software failure, and the probability of occurrence
+of such a failure. The software risk class is determined according to
+the rules defined in IEC 62304, and is documented in the risk assessment
+report.</p>
+</div>
+</section>
+<section id="activity-tool-validation">
+<h5>Activity - Tool Validation<a class="headerlink" href="#activity-tool-validation" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>Responsible:</dt><dd><p>Software Engineer</p>
+</dd>
+<dt>Guidance</dt><dd><p>Apply <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-toolval/html/sop-toolval.html#sop-toolval" title="(in SOP-Software — Tool Validation Procedure v32e274c)"><span>SOP-Software — Tool Validation Procedure</span></a> for all software tools that are used in the software development process,
+and that can have an impact on the safety of the medical product.</p>
+</dd>
+<dt>Result, Provided Evidence:</dt><dd><p>Reviewed and approved tool validation reports in QMS for all tools.</p>
+</dd>
+</dl>
+</section>
+<section id="activity-soup-validation">
+<h5>Activity - SouP Validation<a class="headerlink" href="#activity-soup-validation" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>Responsible:</dt><dd><p>Software Engineer</p>
+</dd>
+<dt>Guidance</dt><dd><p>Apply <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-soupval/html/sop-soupval.html#sop-soupval" title="(in SOP-Software of Unknown Provenance Validation Procedure v32e274c)"><span>SOP-Software of Unknown Provenance Validation Procedure</span></a> for all software tools that are used in the software development process,
+and that can have an impact on the safety of the medical product.</p>
+</dd>
+<dt>Result, Provided Evidence:</dt><dd><p>Reviewed and approved tool validation reports in QMS for all tools.</p>
+</dd>
+</dl>
+</section>
+<section id="activity-cybersecurity-assessment">
+<h5>Activity - Cybersecurity Assessment<a class="headerlink" href="#activity-cybersecurity-assessment" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>Responsible:</dt><dd><p>Software Engineer</p>
+</dd>
+<dt>Guidance</dt><dd><p>Apply <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-cybersec/html/sop-cybersec.html#sop-cybersec" title="(in SOP-Software — Cybersecurity Procedures v32e274c)"><span>SOP-Software — Cybersecurity Procedures</span></a> for all software elements that are used in the software development process,</p>
+</dd>
+<dt>Result, Provided Evidence:</dt><dd><p>Reviewed and approved cybersecurity assessment reports in QMS for all software elements.</p>
+<ul class="simple">
+<li><p>It shall include a list of all software elements, and their associated CVE,
+if applicable, and the mitigation measures for each CVE.</p></li>
+<li><p>It shall include a thread model for the software, and the associated mitigation measures for each threat.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="activity-implementation">
+<h5>Activity - Implementation<a class="headerlink" href="#activity-implementation" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>Responsible:</dt><dd><p>Software Engineer</p>
+</dd>
+<dt>Guidance</dt><dd><ul class="simple">
+<li><p>Apply <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-impl/html/sop-impl.html#sop-impl" title="(in SOP-Software — Implementation Procedure v32e274c)"><span>SOP-Software — Implementation Procedure</span></a> for all software elements</p></li>
+</ul>
+</dd>
+<dt>Result, Provided Evidence:</dt><dd><p>Reviewed and approved policy for software implementation in QMS, that includes:
+- coding guidelines applied
+- code review process defined
+- code review criteria are defined and applied
+- static analysis tools and rules are defined
+- (developer unit) test coverage criteria are defined
+- static analysis required
+- no direct merge to protected branch</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Developer unit tests are intended to support
+the development process and to ensure a high level of code quality.</p>
+<p>Developer unit tests are tested on target ISA
+(microcontroller or on a representative environment.</p>
+<p>Coverage is expected to be 100% branch coverage for unit tests,</p>
+<p>but documented and accepted coverage exclude annotations are admissible.</p>
+</div>
+</section>
+<section id="activity-verification">
+<h5>Activity - Verification<a class="headerlink" href="#activity-verification" title="Link to this heading"></a></h5>
+<p>Only a software element that has been implemented according to the defined
+procedures, and has passed the defined verification activities, can be released.</p>
+<p>Minimum levels:</p>
+<ul class="simple">
+<li><p>integration tests</p></li>
+<li><p>system tests where applicable</p></li>
+<li><p>traceability to requirements</p></li>
+<li><p>test coverage analysis</p></li>
+</ul>
+<dl class="simple">
+<dt>Responsible:</dt><dd><p>Test Engineer, Software Engineer, Product Owner</p>
+</dd>
+<dt>Guidance</dt><dd><ul class="simple">
+<li><p>follow the test strategy defined in the <a class="reference internal" href="#term-SwDP"><span class="xref std std-term">SwDP</span></a></p></li>
+<li><p>apply <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-verif/html/sop-verif.html#sop-verif" title="(in SOP-Software — Verification Procedure v32e274c)"><span>SOP-Software — Verification Procedure</span></a> for all software elements</p></li>
+</ul>
+</dd>
+<dt>Result, Provided Evidence:</dt><dd><p>Reviewed and approved policy for software verification in QMS, that includes:
+- test strategy defined
+- test plan for each software element (including test environments)
+- test cases for each software requirement and detailed software requirement
+- test results for each test case
+- traceability of test cases to requirements</p>
+</dd>
+</dl>
+</section>
+<section id="activity-release">
+<h5>Activity - Release<a class="headerlink" href="#activity-release" title="Link to this heading"></a></h5>
+<p>A software release is a version of the software that has been implemented
+according to the defined procedures, and has passed the defined verification activities.
+A software release is intended to <strong>be used outside the development environment</strong>.</p>
+<dl class="simple">
+<dt>Responsible:</dt><dd><p>Software Engineer</p>
+</dd>
+</dl>
+<p>Guidance
+- Prerequisites</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>All software elements have been implemented according to the defined procedures</p></li>
+<li><p>All software elements have passed the defined verification activities</p></li>
+<li><p>All software elements have been reviewed and approved</p></li>
+<li><p>All software elements have been documented in the project repository</p></li>
+<li><p>All software elements have been linked to their respective requirements,
+design elements, and test cases</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>Release process</p>
+<ul>
+<li><p>Create a release branch from the main branch</p></li>
+<li><p>Update the version number in the software and documentation</p></li>
+<li><p>Generate release notes that include:</p>
+<ul>
+<li><p>List of implemented features and changes</p></li>
+<li><p>List of fixed bugs and known issues</p></li>
+<li><p>List of all software elements included in the release,
+with their respective version numbers and links to their documentation</p></li>
+</ul>
+</li>
+<li><p>Tag the release in the version control system</p></li>
+<li><p>Merge the release branch back to the main branch</p></li>
+<li><p>Create a release notes controlled document from <cite>tpl-sw-rn</cite> template,</p></li>
+<li><p>Publish the release notes and the software release to the appropriate channels</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="metrics-for-passing-of-mvp-v-vready-gate">
+<h5>Metrics for Passing of MVP-V&amp;VReady Gate<a class="headerlink" href="#metrics-for-passing-of-mvp-v-vready-gate" title="Link to this heading"></a></h5>
+<p>Documents released:
+- SwRS,
+- SwDS,
+- SwTP,
+- SwTR,
+- SwRN
+- Tool validation reports
+- SouP validation reports
+- Risk assessment report</p>
+<p>Traces:</p>
+<ul class="simple">
+<li><p>All software requirements have associated test cases</p></li>
+<li><p>All software requirements have associated design elements</p></li>
+<li><p>All software requirements are traced to system requirements,
+or are traced to user needs
+or are traced to risk control measures</p></li>
+<li><p>All detailed software requirements are traced to software requirements
+or are traced to software design elements</p></li>
+</ul>
+<p>The automated traceability checks enforced by the Sphinx build (schema
+validation and constraint rules) are documented in
+<a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-req_design/html/sop-req_design.html#sop-req-design" title="(in SOP — Software Requirement and Design Procedure v32e274c)"><span>SOP — Software Requirement and Design Procedure</span></a> under <em>Traceability Completeness
+Checks</em>. A passing build is a prerequisite for gate sign-off.</p>
+<p>Open defects:</p>
+<ul class="simple">
+<li><p>No open critical or high defects</p></li>
+</ul>
+<p>Software verification:</p>
+<ul class="simple">
+<li><p>all software requirements have associated test cases</p></li>
+<li><p>all test cases have been executed with passing results</p></li>
+<li><p>test coverage at 100% branch coverage for unit tests
+(documented  and accepted coverage exclude annotations are admissible)</p></li>
+<li><p>unit tests performed on target ISA (microcontroller or on a representative environment)</p></li>
+</ul>
+</section>
+</section>
+<section id="production-software-and-comfort-feature-phase">
+<h4><a class="toc-backref" href="#id16" role="doc-backlink">Production Software and Comfort Feature Phase</a><a class="headerlink" href="#production-software-and-comfort-feature-phase" title="Link to this heading"></a></h4>
+<p>Production Software is the software that is used to perform FCT testing of the PCB,
+and is also used for factory deployment of the software on the PCB.</p>
+<p>It is not part of the medical product, but is essential for the production of
+the medical product.</p>
+<p>Comfort features are software features that are not essential for the safe and
+effective use of the medical product.</p>
+<p>They are not part of the MVP, but are intended to be added in later releases of
+the medical product, after the MVP is released. They do not require any
+electronics or hardware changes, but are purely software features.</p>
+<p>They improve the user experience, simplify the support and maintenance.</p>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>This phase is added later but before V&amp;VReady of the first project</p>
+</div>
+</section>
+<section id="maintenance-phase">
+<h4><a class="toc-backref" href="#id17" role="doc-backlink">Maintenance Phase</a><a class="headerlink" href="#maintenance-phase" title="Link to this heading"></a></h4>
+<div class="admonition-todo admonition" id="id3">
+<p class="admonition-title">Todo</p>
+<p>This phase is added later but before ProdReady of the first project</p>
+<p>Address</p>
+<ul class="simple">
+<li><p>Incindent monitoring,</p></li>
+<li><p>CAPA process,</p></li>
+<li><p>CVE monitoring,</p></li>
+<li><p>and related software updates.</p></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+<section id="appendix">
+<h2>Appendix<a class="headerlink" href="#appendix" title="Link to this heading"></a></h2>
+<p>Document templates referenced by this SOP:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="appendix/tpl-swdp.html">MyProject — Software Development Plan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/tpl-swrs.html">MyProject — Software Development Requirement Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/tpl-swds.html">MyProject — Software Development Design Specification</a></li>
+</ul>
+</div>
+</section>
+<section id="glossary">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Glossary</a><a class="headerlink" href="#glossary" title="Link to this heading"></a></h2>
+<section id="general-terms">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">General Terms</a><a class="headerlink" href="#general-terms" title="Link to this heading"></a></h3>
+<dl class="simple glossary">
+<dt id="term-CAPA">CAPA<a class="headerlink" href="#term-CAPA" title="Link to this term"></a></dt><dd><p>Corrective and Preventive Action, formal process required by
+FDA Quality System Regulation (21 CFR 820), and
+ISO 62304, MDR 2017/745</p>
+</dd>
+<dt id="term-CVE">CVE<a class="headerlink" href="#term-CVE" title="Link to this term"></a></dt><dd><p>Common Vulnerability Exposure, publicly know vulnerability of a software
+element.</p>
+</dd>
+<dt id="term-DSwDS">DSwDS<a class="headerlink" href="#term-DSwDS" title="Link to this term"></a></dt><dd><p>Detailed Software Design Specification, a document that contains the
+detailed software design for a software system.</p>
+</dd>
+<dt id="term-DSwRS">DSwRS<a class="headerlink" href="#term-DSwRS" title="Link to this term"></a></dt><dd><p>Detailed Software Requirements Specification, a document that contains the
+detailed software requirements for a software system.</p>
+</dd>
+<dt id="term-FMEA">FMEA<a class="headerlink" href="#term-FMEA" title="Link to this term"></a></dt><dd><p>Failure Mode and Effects Analysis, a systematic approach to identify potential failure modes,
+their causes and effects, and to prioritize them based on their severity, occurrence, and detectability.</p>
+</dd>
+<dt id="term-FTA">FTA<a class="headerlink" href="#term-FTA" title="Link to this term"></a></dt><dd><p>Fault Tree Analysis, a top-down approach to identify the root causes of a failure.</p>
+</dd>
+<dt id="term-HMI">HMI<a class="headerlink" href="#term-HMI" title="Link to this term"></a></dt><dd><p>Human-Machine Interface</p>
+</dd>
+<dt id="term-Risk-Control-Measure">Risk Control Measure<a class="headerlink" href="#term-Risk-Control-Measure" title="Link to this term"></a></dt><dd><p>A measure implemented to reduce the risk of a hazardous situation to an acceptable level.</p>
+</dd>
+<dt id="term-Software-Hazard">Software Hazard<a class="headerlink" href="#term-Software-Hazard" title="Link to this term"></a></dt><dd><p>A software state that, in combination with a particular set of conditions, can lead to a hazardous situation.</p>
+</dd>
+<dt id="term-Software-Risk-Class">Software Risk Class<a class="headerlink" href="#term-Software-Risk-Class" title="Link to this term"></a></dt><dd><p>A classification of software based on the severity of the harm that can be caused by a software failure,
+and the probability of occurrence of such a failure.</p>
+</dd>
+<dt id="term-SouP">SouP<a class="headerlink" href="#term-SouP" title="Link to this term"></a></dt><dd><p>Software of Unknown Provenance — pre-existing software that is integrated
+into a medical device software product without the manufacturer having
+performed the full software development lifecycle activities for that
+component.  Includes open-source libraries, third-party packages, SDKs,
+operating system components, and vendor-supplied firmware HALs.</p>
+</dd>
+<dt id="term-SwDS">SwDS<a class="headerlink" href="#term-SwDS" title="Link to this term"></a></dt><dd><p>Software Design Specification, a document that contains the software design
+for a software system.</p>
+</dd>
+<dt id="term-SwRAR">SwRAR<a class="headerlink" href="#term-SwRAR" title="Link to this term"></a></dt><dd><p>Software Risk Assessment Report is a document that contains the results of the software risk assessment,
+including the identified software hazards.</p>
+</dd>
+<dt id="term-SwRS">SwRS<a class="headerlink" href="#term-SwRS" title="Link to this term"></a></dt><dd><p>Software Requirements Specification, a document that contains the software
+requirements for a software system.</p>
+</dd>
+</dl>
+</section>
+<section id="qms-document-types">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">QMS Document Types</a><a class="headerlink" href="#qms-document-types" title="Link to this heading"></a></h3>
+<p>No QMS document types defined.</p>
+</section>
+<section id="identifier-prefixes">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">Identifier Prefixes</a><a class="headerlink" href="#identifier-prefixes" title="Link to this heading"></a></h3>
+<dl class="simple glossary">
+<dt id="term-CON">CON<a class="headerlink" href="#term-CON" title="Link to this term"></a></dt><dd><p>Constraint</p>
+</dd>
+<dt id="term-ELR">ELR<a class="headerlink" href="#term-ELR" title="Link to this term"></a></dt><dd><p>Electronic/Electrical Requirement</p>
+</dd>
+<dt id="term-HAZ">HAZ<a class="headerlink" href="#term-HAZ" title="Link to this term"></a></dt><dd><p>Hazard intrinsic to the system or user</p>
+</dd>
+<dt id="term-RSK">RSK<a class="headerlink" href="#term-RSK" title="Link to this term"></a></dt><dd><p>Risk imposed to the system or user</p>
+</dd>
+<dt id="term-SWR">SWR<a class="headerlink" href="#term-SWR" title="Link to this term"></a></dt><dd><p>Software Requirement</p>
+</dd>
+<dt id="term-SWS">SWS<a class="headerlink" href="#term-SWS" title="Link to this term"></a></dt><dd><p>Software Specification</p>
+</dd>
+<dt id="term-SYR">SYR<a class="headerlink" href="#term-SYR" title="Link to this term"></a></dt><dd><p>System Requirement</p>
+</dd>
+<dt id="term-SYS">SYS<a class="headerlink" href="#term-SYS" title="Link to this term"></a></dt><dd><p>System Specification</p>
+</dd>
+<dt id="term-TC">TC<a class="headerlink" href="#term-TC" title="Link to this term"></a></dt><dd><p>Test Case</p>
+</dd>
+<dt id="term-UN">UN<a class="headerlink" href="#term-UN" title="Link to this term"></a></dt><dd><p>User Need</p>
+</dd>
+</dl>
+<dl class="simple glossary">
+<dt id="term-SwDP">SwDP<a class="headerlink" href="#term-SwDP" title="Link to this term"></a></dt><dd><p>Software Development Plan</p>
+</dd>
+<dt id="term-SwRN">SwRN<a class="headerlink" href="#term-SwRN" title="Link to this term"></a></dt><dd><p>Software Release Notes</p>
+</dd>
+<dt id="term-SwTP">SwTP<a class="headerlink" href="#term-SwTP" title="Link to this term"></a></dt><dd><p>Software Test Plan</p>
+</dd>
+<dt id="term-SwTR">SwTR<a class="headerlink" href="#term-SwTR" title="Link to this term"></a></dt><dd><p>Software Test Report</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="SOP-Software — Software Development Procedure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="appendix/tpl-swdp.html" class="btn btn-neutral float-right" title="MyProject — Software Development Plan" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, TiaC Systems.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

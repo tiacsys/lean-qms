@@ -1,0 +1,1531 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOP — Software Requirement and Design Procedure &mdash; SOP — Software Requirement and Design Procedure 32e274c</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=4580e023" />
+      <link rel="stylesheet" type="text/css" href="_static/draft.css?v=bcd82943" />
+
+  
+    <link rel="shortcut icon" href="_static/bridle-favicon.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=4940246b"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+
+
+const initStyles = () => {
+    const defaultStyle = document.createElement('style');
+    defaultStyle.textContent = "pre.mermaid {\n    /* Same as .mermaid-container > pre */\n    display: block;\n    width: 100%;\n}\n\npre.mermaid > svg {\n    /* Same as .mermaid-container > pre > svg */\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}";
+    document.head.appendChild(defaultStyle);
+
+    const fullscreenStyle = document.createElement('style');
+    fullscreenStyle.textContent = ".mermaid-container {\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.mermaid-container > pre {\n    display: block;\n    width: 100%;\n}\n\n.mermaid-container > pre > svg {\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}\n\n.mermaid-fullscreen-btn {\n    position: absolute;\n    width: 28px;\n    height: 28px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.3);\n    border-radius: 4px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    transition: all 0.2s;\n    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n    font-size: 14px;\n    line-height: 1;\n    padding: 0;\n    color: #333;\n}\n\n.mermaid-fullscreen-btn:hover {\n    opacity: 100% !important;\n    background: rgba(255, 255, 255, 1);\n    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-btn.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.3);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-btn.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal {\n    display: none;\n    position: fixed !important;\n    top: 0 !important;\n    left: 0 !important;\n    width: 95vw;\n    height: 100vh;\n    background: rgba(255, 255, 255, 0.98);\n    z-index: 9999;\n    padding: 20px;\n    overflow: auto;\n}\n\n.mermaid-fullscreen-modal.dark-theme {\n    background: rgba(0, 0, 0, 0.98);\n}\n\n.mermaid-fullscreen-modal.active {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen {\n    position: relative;\n    width: 95vw;\n    height: 90vh;\n    max-width: 95vw;\n    max-height: 90vh;\n    background: white;\n    border-radius: 8px;\n    padding: 20px;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n    overflow: auto;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen.dark-theme {\n    background: #1a1a1a;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);\n}\n\n.mermaid-container-fullscreen pre.mermaid {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen .mermaid svg {\n    height: 100% !important;\n    width: 100% !important;\n    cursor: grab;\n}\n\n.mermaid-fullscreen-close {\n    position: fixed !important;\n    top: 20px !important;\n    right: 20px !important;\n    width: 40px;\n    height: 40px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.2);\n    border-radius: 50%;\n    cursor: pointer;\n    z-index: 10000;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);\n    transition: all 0.2s;\n    font-size: 24px;\n    line-height: 1;\n    color: #333;\n}\n\n.mermaid-fullscreen-close:hover {\n    background: white;\n    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-close.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.2);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-close.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal .mermaid-fullscreen-btn {\n    display: none !important;\n}";
+    document.head.appendChild(fullscreenStyle);
+}
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    // We use a set of heuristics:
+    // 1. Check for common dark mode classes or attributes
+    // 2. Check computed background color brightness
+    if (document.documentElement.classList.contains('dark') ||
+        document.documentElement.getAttribute('data-theme') === 'dark' ||
+        document.body.classList.contains('dark') ||
+        document.body.getAttribute('data-theme') === 'dark') {
+        // console.log("Dark theme detected via class/attribute");
+        return true;
+    }
+    if (document.documentElement.classList.contains('light') ||
+        document.documentElement.getAttribute('data-theme') === 'light' ||
+        document.body.classList.contains('light') ||
+        document.body.getAttribute('data-theme') === 'light') {
+        // console.log("Light theme detected via class/attribute");
+        return false;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // console.log("Dark theme detected via prefers-color-scheme");
+        return true;
+    }
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        // console.log("Background color brightness:", brightness);
+        return brightness < 128;
+    }
+    // console.log("No dark or light theme detected, defaulting to light theme");
+    return false;
+};
+
+let darkTheme = isDarkTheme();
+let modal = null;
+let modalContent = null;
+let previousScrollOffset = [window.scrollX, window.scrollY];
+let _lazyObserver = null;
+let _renderQueue = Promise.resolve();
+let closeModal = () => {};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) {
+        closeModal();
+    }
+});
+
+// Apply d3 zoom to each SVG. Idempotent: an SVG already wrapped is skipped,
+// so this is safe to call both for the initial batch and for diagrams that
+// render lazily once they become visible.
+const addZoomToSvgs = (svgs) => {
+    svgs.each(function() {
+        if (this.getAttribute('data-zoom-applied') === 'true') return;
+        var svg = d3.select(this);
+        svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+        var inner = svg.select("g");
+        var zoom = d3.zoom().on("zoom", function(event) {
+            inner.attr("transform", event.transform);
+        });
+        svg.call(zoom);
+        this.setAttribute('data-zoom-applied', 'true');
+    });
+};
+
+const runMermaid = async (rerun) => {
+    console.log("Running mermaid diagrams, rerun =", rerun);
+    // clear all existing mermaid charts
+    let all_mermaids = document.querySelectorAll(".mermaid");
+
+    if (rerun) {
+        // Disconnect any previous lazy rendering observer
+        if (_lazyObserver) {
+            _lazyObserver.disconnect();
+            _lazyObserver = null;
+        }
+
+        all_mermaids.forEach((el) => {
+            el.removeAttribute('data-mermaid-deferred');
+            el.removeAttribute('data-mermaid-render-failed');
+            if(!el.hasAttribute("data-original-code")) {
+                // store original code
+                // console.log(`Storing original code for first run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+            if(el.getAttribute("data-processed") === "true") {
+                // remove and restore original
+                el.removeAttribute("data-processed");
+                // console.log(`Restoring original code for re-run: `, el.getAttribute('data-original-code'));
+                el.innerHTML = el.getAttribute('data-original-code');
+            } else {
+                // store original code
+                // console.log(`Storing original code for re-run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+        });
+
+        // Separate visible and hidden elements. Mermaid's layout engine measures
+        // text dimensions via the DOM, which fails for elements hidden by a parent
+        // (e.g., Reveal.js non-active slides, sphinx-design unopened tabs),
+        // producing broken SVGs. Render visible elements now, defer hidden ones.
+        const visible = [];
+        const hidden = [];
+        all_mermaids.forEach((el) => {
+            // offsetParent is null for display:none ancestors.
+            // getClientRects().length > 0 catches position:fixed elements
+            // (which also have null offsetParent but are still visible).
+            if (el.offsetParent !== null || el.getClientRects().length > 0) {
+                visible.push(el);
+            } else {
+                hidden.push(el);
+                el.setAttribute('data-mermaid-deferred', 'true');
+            }
+        });
+
+        if (visible.length > 0) {
+            try {
+                await mermaid.run({ nodes: visible });
+            } catch (e) {
+                console.error("Mermaid rendering failed:", e);
+            }
+        }
+
+        // Lazily render hidden elements when they become visible.
+        // Uses a promise chain (_renderQueue) to serialize rendering,
+        // since IntersectionObserver may report multiple entries at once
+        // and mermaid.run() is not safe to call concurrently.
+        if (hidden.length > 0) {
+            if (typeof IntersectionObserver === 'undefined') {
+                console.warn("IntersectionObserver not available; hidden mermaid diagrams will not render.");
+            } else {
+                _renderQueue = Promise.resolve();
+                _lazyObserver = new IntersectionObserver((entries) => {
+                    for (const entry of entries) {
+                        if (entry.isIntersecting && entry.target.getAttribute("data-processed") !== "true") {
+                            _lazyObserver.unobserve(entry.target);
+                            const el = entry.target;
+                            _renderQueue = _renderQueue.then(async () => {
+                                try {
+                                    await mermaid.run({ nodes: [el] });
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    // Apply zoom to the now-rendered diagram, matching
+                                    // the decoration visible diagrams receive.
+                                    if (false) {
+                                        addZoomToSvgs(d3.selectAll("").select(function() {
+                                            return this.querySelector("svg");
+                                        }));
+                                    }
+                                } catch (e) {
+                                    console.error("Mermaid deferred rendering failed:", e);
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    el.setAttribute('data-mermaid-render-failed', 'true');
+                                }
+                            });
+                        }
+                    }
+                });
+                hidden.forEach((el) => _lazyObserver.observe(el));
+            }
+        }
+    }
+
+    all_mermaids = document.querySelectorAll(".mermaid");
+    // Exclude deferred (hidden) and render-failed elements from completion checks
+    const mermaids_active = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])");
+    const mermaids_processed = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])[data-processed='true']");
+
+    if (false) {
+        const mermaids_to_add_zoom = 0 === -1 ? mermaids_active.length : 0;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll("").select(function() {
+                return this.querySelector("svg");
+            });
+            // Wait until every active (visible) diagram has rendered. Deferred
+            // diagrams are excluded, so a fixed d3_node_count that counts a
+            // hidden diagram no longer loops forever waiting for its SVG.
+            if(mermaids_active.length !== mermaids_processed.length) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            }
+            addZoomToSvgs(svgs);
+        }
+    } else if(mermaids_active.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(() => runMermaid(false), 200);
+        return;
+    }
+
+    // Stop here if not adding fullscreen capability
+    if (!true) return;
+
+    if (modal !== null ) {
+        // Destroy existing modal
+        modal.remove();
+        modal = null;
+        modalContent = null;
+    }
+
+    modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            // Already processed, adjust button class if needed
+            const existingBtn = mermaidDiv.parentNode.querySelector('.mermaid-fullscreen-btn');
+            if (existingBtn) {
+                existingBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+            }
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = "\u26f6";
+        fullscreenBtn.style.opacity = "50%";
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scrollX, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.display = 'block';
+
+                if (false) {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        container.appendChild(fullscreenBtn);
+    });
+};
+
+
+
+const load = async () => {
+    initStyles();
+
+
+    await runMermaid(true);
+
+    const reRunIfThemeChanges = async () => {
+        const newDarkTheme = isDarkTheme();
+        if (newDarkTheme !== darkTheme) {
+            darkTheme = newDarkTheme;
+            console.log("Theme change detected, re-running mermaid with", darkTheme ? "dark" : "default", "theme");
+            await mermaid.initialize(
+                {...{"startOnLoad": false},
+                ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+                }
+            );
+            await runMermaid(true);
+        }
+    };
+
+    // Update theme classes when theme changes
+    const themeObserver = new MutationObserver(reRunIfThemeChanges);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+};
+
+
+
+
+
+console.log("Initializing mermaid with", darkTheme ? "dark" : "default", "theme");
+mermaid.initialize(
+    {...{"startOnLoad": false},
+    ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+    }
+);
+
+window.addEventListener("load", load);
+window.runMermaid = runMermaid;</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="SOP — Software Requirement and Design Procedure" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+  <a href="index.html" class="icon icon-home">
+    SOP — Software Requirement and Design Procedure
+      <img src="_static/bridle-logo.svg" class="logo" alt="Logo"/>
+  </a>
+
+  <div class="project-version">Version 32e274c</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SOP — Software Requirement and Design Procedure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-control">Document Control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#purpose">Purpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scope">Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#change-history">Change History</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#roles-and-responsibilities">Roles and Responsibilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#process-overview">Process Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#artefact-types-and-fields">Artefact Types and Fields</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mandatory-fields-per-artefact">Mandatory Fields per Artefact</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#traceability-links">Traceability Links</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#procedure">Procedure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#phase-1-elicit-and-document-stakeholder-needs">Phase 1 — Elicit and Document Stakeholder Needs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#phase-2-derive-system-requirements">Phase 2 — Derive System Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#phase-3-system-architecture-and-preliminary-risk-analysis">Phase 3 — System Architecture and Preliminary Risk Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#phase-4-derive-software-requirements">Phase 4 — Derive Software Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#phase-5-software-design-specifications">Phase 5 — Software Design Specifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#phase-6-test-case-authoring">Phase 6 — Test Case Authoring</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cyclic-improvement-and-re-entry-points">Cyclic Improvement and Re-entry Points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#traceability-completeness-checks">Traceability Completeness Checks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#records">Records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#iec-62304-clause-mapping">IEC 62304 Clause Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deviations">Deviations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#glossary">Glossary</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general-terms">General Terms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qms-document-types">QMS Document Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#identifier-prefixes">Identifier Prefixes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  
+  <div class="toctree-wrapper compound reference-groups-wrapper">
+    
+    <p class="caption reference-group-caption" role="heading">
+      <a class="reference external reference-group-caption-link" href="https://tiacsys.github.io/lean-qms/get-it-running/qms-overview/html/index.html">QMS Overview</a>
+    </p>
+    
+    <p class="caption reference-group-caption" role="heading"><span class="caption-text">Standard Operating Procedures</span></p>
+    <ul>
+      
+      <li class="toctree-l1"><a class="reference external reference-group-link" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-docctl/html/index.html">SOP Document Control</a></li>
+      
+      <li class="toctree-l1"><a class="reference external reference-group-link" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-swdp/html/index.html">SOP Software Development Procedure</a></li>
+      
+      <li class="toctree-l1"><a class="reference external reference-group-link" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-impl/html/index.html">SOP Implementation</a></li>
+      
+      <li class="toctree-l1"><a class="reference external reference-group-link" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-verif/html/index.html">SOP Verification</a></li>
+      
+      <li class="toctree-l1"><a class="reference external reference-group-link" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-cybersec/html/index.html">SOP Cybersecurity</a></li>
+      
+      <li class="toctree-l1"><a class="reference external reference-group-link" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-toolval/html/index.html">SOP Tool Validation</a></li>
+      
+      <li class="toctree-l1"><a class="reference external reference-group-link" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-soupval/html/index.html">SOP SouP Validation</a></li>
+      
+    </ul>
+    
+    <details class="reference-group-details">
+      <summary class="caption reference-group-caption" role="heading">Records</summary>
+      <ul>
+        
+        <li class="toctree-l1"><a class="reference external reference-group-link" href="https://tiacsys.github.io/lean-qms/get-it-running/ptcc_kempert-volker_001/html/index.html">PTCC - Volker Kempert</a></li>
+        
+      </ul>
+    </details>
+    
+  </div>
+  
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SOP — Software Requirement and Design Procedure</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">SOP — Software Requirement and Design Procedure</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/sop-req_design.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sop-software-requirement-and-design-procedure">
+<span id="sop-req-design"></span><h1>SOP — Software Requirement and Design Procedure<a class="headerlink" href="#sop-software-requirement-and-design-procedure" title="Link to this heading"></a></h1>
+<nav class="contents local" id="table-of-content">
+<p class="topic-title">Table of Content</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#document-control" id="id1">Document Control</a></p>
+<ul>
+<li><p><a class="reference internal" href="#purpose" id="id2">Purpose</a></p></li>
+<li><p><a class="reference internal" href="#scope" id="id3">Scope</a></p></li>
+<li><p><a class="reference internal" href="#change-history" id="id4">Change History</a></p></li>
+<li><p><a class="reference internal" href="#references" id="id5">References</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#roles-and-responsibilities" id="id6">Roles and Responsibilities</a></p></li>
+<li><p><a class="reference internal" href="#process-overview" id="id7">Process Overview</a></p></li>
+<li><p><a class="reference internal" href="#artefact-types-and-fields" id="id8">Artefact Types and Fields</a></p>
+<ul>
+<li><p><a class="reference internal" href="#mandatory-fields-per-artefact" id="id9">Mandatory Fields per Artefact</a></p></li>
+<li><p><a class="reference internal" href="#traceability-links" id="id10">Traceability Links</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#procedure" id="id11">Procedure</a></p>
+<ul>
+<li><p><a class="reference internal" href="#phase-1-elicit-and-document-stakeholder-needs" id="id12">Phase 1 — Elicit and Document Stakeholder Needs</a></p></li>
+<li><p><a class="reference internal" href="#phase-2-derive-system-requirements" id="id13">Phase 2 — Derive System Requirements</a></p></li>
+<li><p><a class="reference internal" href="#phase-3-system-architecture-and-preliminary-risk-analysis" id="id14">Phase 3 — System Architecture and Preliminary Risk Analysis</a></p>
+<ul>
+<li><p><a class="reference internal" href="#phase-3a-system-design-specifications" id="id15">Phase 3a — System Design Specifications</a></p></li>
+<li><p><a class="reference internal" href="#phase-3b-preliminary-risk-analysis" id="id16">Phase 3b — Preliminary Risk Analysis</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#phase-4-derive-software-requirements" id="id17">Phase 4 — Derive Software Requirements</a></p></li>
+<li><p><a class="reference internal" href="#phase-5-software-design-specifications" id="id18">Phase 5 — Software Design Specifications</a></p></li>
+<li><p><a class="reference internal" href="#phase-6-test-case-authoring" id="id19">Phase 6 — Test Case Authoring</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#cyclic-improvement-and-re-entry-points" id="id20">Cyclic Improvement and Re-entry Points</a></p></li>
+<li><p><a class="reference internal" href="#traceability-completeness-checks" id="id21">Traceability Completeness Checks</a></p></li>
+<li><p><a class="reference internal" href="#records" id="id22">Records</a></p></li>
+<li><p><a class="reference internal" href="#iec-62304-clause-mapping" id="id23">IEC 62304 Clause Mapping</a></p></li>
+<li><p><a class="reference internal" href="#deviations" id="id24">Deviations</a></p></li>
+<li><p><a class="reference internal" href="#glossary" id="id25">Glossary</a></p>
+<ul>
+<li><p><a class="reference internal" href="#general-terms" id="id26">General Terms</a></p></li>
+<li><p><a class="reference internal" href="#qms-document-types" id="id27">QMS Document Types</a></p></li>
+<li><p><a class="reference internal" href="#identifier-prefixes" id="id28">Identifier Prefixes</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="document-control">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Document Control</a><a class="headerlink" href="#document-control" title="Link to this heading"></a></h2>
+<table class="doc-ctrl docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Document Id</p></td>
+<td><p>sop-req_design</p></td>
+</tr>
+<tr class="row-odd"><td><p>Title</p></td>
+<td><p>SOP — Software Requirement and Design Procedure</p></td>
+</tr>
+<tr class="row-even"><td><p>Version</p></td>
+<td><p>1.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Owner</p></td>
+<td><p>QA</p></td>
+</tr>
+<tr class="row-even"><td><p>Classification</p></td>
+<td><p>SOP</p></td>
+</tr>
+<tr class="row-odd"><td><p>Based On Template</p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-even"><td><p>Author</p></td>
+<td><p>not-authored-yet</p></td>
+</tr>
+<tr class="row-odd"><td><p>Reviewed By</p></td>
+<td><p>not-reviewed-yet</p></td>
+</tr>
+<tr class="row-even"><td><p>Approved By</p></td>
+<td><p>not-approved-yet</p></td>
+</tr>
+<tr class="row-odd"><td><p>Approval Date</p></td>
+<td><p>not-approved-yet</p></td>
+</tr>
+<tr class="row-even"><td><p>Supersedes</p></td>
+<td><p>None</p></td>
+</tr>
+</tbody>
+</table>
+<section id="purpose">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Purpose</a><a class="headerlink" href="#purpose" title="Link to this heading"></a></h3>
+<p>This <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-docctl/html/sop-docctl.html#term-SOP" title="(in Software Lifecycle Documentation Control Procedure v32e274c)"><span class="xref std std-term">SOP</span></a> defines the iterative process by which the project derives,
+structures, and refines its software requirements and design artefacts —
+from high-level stakeholder needs through system-level requirements and
+architecture, down to detailed software requirements and software design
+specifications, with an embedded preliminary risk analysis cycle that feeds
+safety and cybersecurity risk-control requirements back into the
+requirements baseline.</p>
+<p>The procedure establishes the roles, artefact types, traceability links,
+and review gates that govern this cyclic improvement process throughout the
+software development lifecycle.</p>
+</section>
+<section id="scope">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Scope</a><a class="headerlink" href="#scope" title="Link to this heading"></a></h3>
+<p>This <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-docctl/html/sop-docctl.html#term-SOP" title="(in Software Lifecycle Documentation Control Procedure v32e274c)"><span class="xref std std-term">SOP</span></a> applies to all software development activities that produce
+or consume the following controlled artefact types:</p>
+<ul class="simple">
+<li><p>Stakeholder and user needs</p></li>
+<li><p>System requirements and system design specifications</p></li>
+<li><p>Risk and hazard records, including risk-control measure requirements</p></li>
+<li><p>Software requirements (top-level and detailed)</p></li>
+<li><p>Software design specifications (top-level and detailed)</p></li>
+<li><p>Software test cases that verify requirements</p></li>
+</ul>
+<p>It is applicable for Software Safety Classes A, B, and C as defined by
+IEC 62304, and it is designed to support compliance with IEC 62304 clauses
+5.1–5.4 (software requirements and architecture) as well as ISO 14971
+clause 10 (software contribution to risk management).</p>
+</section>
+<section id="change-history">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Change History</a><a class="headerlink" href="#change-history" title="Link to this heading"></a></h3>
+<p>The history of this document is recorded within the git repository by the
+commit messages. The following document history is derived from a query to
+the git repository.</p>
+<ul>
+<li><p><strong>docs: add the software lifecycle SOPs</strong><span> by </span><em>Volker Kempert</em><span> at </span><em>2026-08-05 13:04:40</em></p>
+<p>Eight controlled SOPs (document control, software development,
+requirement &amp; design, implementation, verification, cybersecurity,
+tool validation, SouP validation), each its own Sphinx sub-project
+with its own PDF, plus their HTML-only appendix templates.
+
+Co-Authored-By: Claude Sonnet 5 &lt;noreply&#64;anthropic.com&gt;</p>
+</li>
+</ul>
+</section>
+<section id="references">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">References</a><a class="headerlink" href="#references" title="Link to this heading"></a></h3>
+<p>Standards implemented or complied with by this <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-docctl/html/sop-docctl.html#term-SOP" title="(in Software Lifecycle Documentation Control Procedure v32e274c)"><span class="xref std std-term">SOP</span></a>:</p>
+<ul class="simple">
+<li><p><strong>IEC 62304:2006 + A1:2015</strong> — Medical device software — Software life cycle processes</p>
+<ul>
+<li><p>Clause 5.1 — Software development planning</p></li>
+<li><p>Clause 5.2 — Software requirements analysis</p></li>
+<li><p>Clause 5.3 — Software architectural design</p></li>
+<li><p>Clause 5.4 — Software detailed design</p></li>
+</ul>
+</li>
+<li><p><strong>ISO 14971:2019</strong> — Medical devices — Application of risk management to medical devices</p>
+<ul>
+<li><p>Clause 5 — Risk analysis</p></li>
+<li><p>Clause 6 — Risk evaluation</p></li>
+<li><p>Clause 7 — Risk control</p></li>
+<li><p>Clause 10 — Software as a component of a medical device</p></li>
+</ul>
+</li>
+<li><p><strong>IEC 62443-4-1:2018</strong> — Security for industrial automation and control systems — Part 4-1:
+Secure product development lifecycle requirements (for cybersecurity concerns)</p></li>
+</ul>
+<p>Applied <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-docctl/html/sop-docctl.html#term-SOP" title="(in Software Lifecycle Documentation Control Procedure v32e274c)"><span class="xref std std-term">SOP</span></a>s:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-docctl/html/sop-docctl.html#sop-docctl" title="(in Software Lifecycle Documentation Control Procedure v32e274c)"><span>Software Lifecycle Documentation Control Procedure</span></a> — Documentation control for all artefacts produced</p></li>
+<li><p><a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-swdp/html/sop-swdp.html#sop-swdp" title="(in SOP-Software — Software Development Procedure v32e274c)"><span>SOP-Software — Software Development Procedure</span></a> — Software Development Plan; defines milestones and release gates</p></li>
+<li><p><a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-verif/html/sop-verif.html#sop-verif" title="(in SOP-Software — Verification Procedure v32e274c)"><span>SOP-Software — Verification Procedure</span></a> — Verification procedure applied to requirements and design</p></li>
+<li><p><a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-cybersec/html/sop-cybersec.html#sop-cybersec" title="(in SOP-Software — Cybersecurity Procedures v32e274c)"><span>SOP-Software — Cybersecurity Procedures</span></a> — Cybersecurity procedure for threats and risk controls</p></li>
+</ul>
+</section>
+</section>
+<section id="roles-and-responsibilities">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Roles and Responsibilities</a><a class="headerlink" href="#roles-and-responsibilities" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Role</p></th>
+<th class="head"><p>Responsibility</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Systems Engineer / Requirement Author</p></td>
+<td><p>Elicit and document stakeholder needs; derive and maintain system
+requirements; co-author system specifications; trace requirements to
+needs and design artefacts.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Software Architect / Design Author</p></td>
+<td><p>Derive system and software design specifications; ensure specifications
+implement the corresponding requirements; maintain <code class="docutils literal notranslate"><span class="pre">implements</span></code> links.</p></td>
+</tr>
+<tr class="row-even"><td><p>Risk Manager</p></td>
+<td><p>Perform preliminary risk analysis; document hazards and risks; identify
+required risk-control measures; ensure risk-control requirements carry
+<code class="docutils literal notranslate"><span class="pre">concerns:</span> <span class="pre">safety</span></code> and valid <code class="docutils literal notranslate"><span class="pre">mitigates</span></code> links.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cybersecurity Engineer</p></td>
+<td><p>Identify cybersecurity threats alongside risk analysis; author or review
+requirements carrying <code class="docutils literal notranslate"><span class="pre">concerns:</span> <span class="pre">cybersecurity</span></code>; liaise with Risk Manager
+where concerns overlap.</p></td>
+</tr>
+<tr class="row-even"><td><p>Software Engineer</p></td>
+<td><p>Derive and document detailed software requirements; author software design
+specifications; maintain <code class="docutils literal notranslate"><span class="pre">derives</span></code> and <code class="docutils literal notranslate"><span class="pre">implements</span></code> links.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Test Engineer</p></td>
+<td><p>Author test cases that verify requirements; maintain <code class="docutils literal notranslate"><span class="pre">verifies</span></code> links.</p></td>
+</tr>
+<tr class="row-even"><td><p>Reviewer / QA</p></td>
+<td><p>Verify completeness, consistency, and traceability at each review gate;
+approve artefacts before promotion to the next phase.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="process-overview">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Process Overview</a><a class="headerlink" href="#process-overview" title="Link to this heading"></a></h2>
+<p>The following diagram illustrates the cyclic improvement process defined
+by this procedure. The process is intentionally iterative: each design phase
+may reveal gaps in the requirements above it, and each risk analysis pass may
+introduce new requirements that feed back into the design.</p>
+<pre  class="mermaid">
+        flowchart TD
+    A[Stakeholder Needs\n  need N_ ] --&gt; B[System Requirements\n  req level:system ]
+    B --&gt; C[System Design\n  spec level:system ]
+    C --&gt; D{Preliminary\nRisk Analysis}
+    D --&gt;|new risk-control\nrequirements| B
+    D --&gt; E[Risk and Hazard\nRecords  risk  hazard ]
+    E --&gt; F[Risk-Control Requirements\n  req  concerns:safety/cybersecurity\n mitigates  RSK_ / HAZ_ ]
+    F --&gt; G[Software Requirements\n  req level:software ]
+    B --&gt; G
+    G --&gt; H[Software Design Specifications\n  spec level:software ]
+    H --&gt; I[Test Cases\n  test ]
+    I --&gt;|verification gap\nor anomaly| G
+    G --&gt;|scope change or\nnew hazard| D
+    H --&gt;|further risk identified| D
+
+style A fill:#9856a5,color:#fff
+style B fill:#BFD8D2
+style C fill:#FEDCD2
+style E fill:#DF744A,color:#fff
+style F fill:#BFD8D2
+style G fill:#BFD8D2
+style H fill:#FEDCD2
+style I fill:#DCB239
+    </pre></section>
+<section id="artefact-types-and-fields">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Artefact Types and Fields</a><a class="headerlink" href="#artefact-types-and-fields" title="Link to this heading"></a></h2>
+<p>All requirements, specifications, risks, and test cases are managed as
+sphinx-needs <em>needs</em> within the source repository.  The table below
+summarises the types used by this procedure.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12.0%" />
+<col style="width: 12.0%" />
+<col style="width: 12.0%" />
+<col style="width: 64.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Directive</p></th>
+<th class="head"><p>Prefix</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Need</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">need</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">N_</span></code></p></td>
+<td><p>Stakeholder, user, market, business, or regulatory need.
+Must carry a <code class="docutils literal notranslate"><span class="pre">category</span></code> field.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Requirement</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">req</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">REQ_</span></code></p></td>
+<td><p>Any requirement at any level. Must carry a <code class="docutils literal notranslate"><span class="pre">level</span></code> field.
+May carry <code class="docutils literal notranslate"><span class="pre">concerns</span></code>, <code class="docutils literal notranslate"><span class="pre">constraint</span></code>, <code class="docutils literal notranslate"><span class="pre">release</span></code>, and link fields.</p></td>
+</tr>
+<tr class="row-even"><td><p>Specification</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">spec</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SPEC_</span></code></p></td>
+<td><p>Any design specification at any level. Must carry a <code class="docutils literal notranslate"><span class="pre">level</span></code> field.
+Links to requirements via <code class="docutils literal notranslate"><span class="pre">implements</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Risk</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">risk</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">RSK_</span></code></p></td>
+<td><p>Identified risk combining a hazard situation with likelihood and
+severity. Linked from mitigating requirements via <code class="docutils literal notranslate"><span class="pre">mitigates</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Hazard</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">hazard</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">HAZ_</span></code></p></td>
+<td><p>Source of potential harm. Linked to risks via <code class="docutils literal notranslate"><span class="pre">causes</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Test Case</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">test</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TC_</span></code></p></td>
+<td><p>Verification artefact. Links to requirements via <code class="docutils literal notranslate"><span class="pre">verifies</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="mandatory-fields-per-artefact">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Mandatory Fields per Artefact</a><a class="headerlink" href="#mandatory-fields-per-artefact" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18.0%" />
+<col style="width: 22.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Applies to</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">:id:</span></code></p></td>
+<td><p>all</p></td>
+<td><p>Unique, stable identifier. Must never be changed after first release.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:level:</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">req</span></code>, <code class="docutils literal notranslate"><span class="pre">spec</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">system</span></code>, <code class="docutils literal notranslate"><span class="pre">hardware</span></code>, <code class="docutils literal notranslate"><span class="pre">software</span></code>, or <code class="docutils literal notranslate"><span class="pre">detailed_software</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">:category:</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">need</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">user</span></code>, <code class="docutils literal notranslate"><span class="pre">business</span></code>, <code class="docutils literal notranslate"><span class="pre">market</span></code>, <code class="docutils literal notranslate"><span class="pre">organizational</span></code>, or <code class="docutils literal notranslate"><span class="pre">regulatory</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:concerns:</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">req</span></code>, <code class="docutils literal notranslate"><span class="pre">spec</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">safety</span></code>, <code class="docutils literal notranslate"><span class="pre">cybersecurity</span></code>, or both (comma-separated).
+Required when the artefact is a risk-control measure or addresses a
+security threat.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">:constraint:</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">req</span></code></p></td>
+<td><p>Boolean <code class="docutils literal notranslate"><span class="pre">true</span></code> when the requirement is also a design constraint
+that restricts the solution space.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:release:</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">req</span></code>, <code class="docutils literal notranslate"><span class="pre">spec</span></code></p></td>
+<td><p>Target milestone (e.g., <code class="docutils literal notranslate"><span class="pre">mvp</span></code>).  Recommended for all software-level
+artefacts.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="traceability-links">
+<span id="sop-req-design-links"></span><h3><a class="toc-backref" href="#id10" role="doc-backlink">Traceability Links</a><a class="headerlink" href="#traceability-links" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18.0%" />
+<col style="width: 82.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Link field</p></th>
+<th class="head"><p>Semantic meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">:derives:</span></code></p></td>
+<td><p>This artefact is <em>derived from</em> the referenced need or higher-level
+requirement.  Direction: child → parent.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:implements:</span></code></p></td>
+<td><p>This specification <em>implements</em> the referenced requirement.
+Direction: spec → req.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">:verifies:</span></code></p></td>
+<td><p>This test case <em>verifies</em> the referenced requirement.
+Direction: test → req.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:mitigates:</span></code></p></td>
+<td><p>This requirement or specification <em>mitigates</em> the referenced risk
+or hazard.  Direction: control → risk/hazard.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">:causes:</span></code></p></td>
+<td><p>This hazard <em>causes</em> the referenced risk.
+Direction: hazard → risk.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:constrains:</span></code></p></td>
+<td><p>This requirement or risk <em>constrains</em> the referenced artefact.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="procedure">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Procedure</a><a class="headerlink" href="#procedure" title="Link to this heading"></a></h2>
+<section id="phase-1-elicit-and-document-stakeholder-needs">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Phase 1 — Elicit and Document Stakeholder Needs</a><a class="headerlink" href="#phase-1-elicit-and-document-stakeholder-needs" title="Link to this heading"></a></h3>
+<p>The process begins with structured elicitation of all stakeholder goals,
+expectations, and constraints. Each distinct need is documented as a
+<code class="docutils literal notranslate"><span class="pre">need</span></code> artefact and assigned a stable identifier.</p>
+<p><strong>Activities</strong></p>
+<ol class="arabic simple">
+<li><p>Conduct stakeholder interviews, user research, and regulatory review.</p></li>
+<li><p>Group needs by category: <code class="docutils literal notranslate"><span class="pre">user</span></code>, <code class="docutils literal notranslate"><span class="pre">business</span></code>, <code class="docutils literal notranslate"><span class="pre">market</span></code>,
+<code class="docutils literal notranslate"><span class="pre">organizational</span></code>, or <code class="docutils literal notranslate"><span class="pre">regulatory</span></code>.</p></li>
+<li><p>Record each need as a <code class="docutils literal notranslate"><span class="pre">need</span></code> directive with a mandatory <code class="docutils literal notranslate"><span class="pre">category</span></code>
+and a unique <code class="docutils literal notranslate"><span class="pre">id</span></code>.</p></li>
+<li><p>Have needs reviewed by a representative of the stakeholder group where
+possible.</p></li>
+</ol>
+<p><strong>Example</strong> — user need:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">need</span><span class="p">::</span> OP User must set the system&#39;s segment positions
+   <span class="nc">:id:</span> N_U_001
+   <span class="nc">:category:</span> user
+
+   The OP User must be able to adjust the table segments
+   to fit the surgeon&#39;s requirements for the specific procedure.
+</pre></div>
+</div>
+<p><strong>Traceability gate</strong>: Every system requirement in Phase 2 shall trace
+back to at least one <code class="docutils literal notranslate"><span class="pre">need</span></code> via <code class="docutils literal notranslate"><span class="pre">:derives:</span></code>.</p>
+</section>
+<section id="phase-2-derive-system-requirements">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Phase 2 — Derive System Requirements</a><a class="headerlink" href="#phase-2-derive-system-requirements" title="Link to this heading"></a></h3>
+<p>System requirements translate stakeholder needs into solution-neutral,
+verifiable statements about the system as a whole. They are assigned
+<code class="docutils literal notranslate"><span class="pre">level:</span> <span class="pre">system</span></code>.</p>
+<p><strong>Activities</strong></p>
+<ol class="arabic simple">
+<li><p>Review each stakeholder need and derive one or more system requirements.</p></li>
+<li><p>Each requirement shall be:</p>
+<ul class="simple">
+<li><p><strong>Atomic</strong> — addresses a single concern.</p></li>
+<li><p><strong>Verifiable</strong> — can be confirmed by inspection, test, or analysis.</p></li>
+<li><p><strong>Traceable</strong> — linked to its parent need via <code class="docutils literal notranslate"><span class="pre">:derives:</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Flag requirements that restrict the solution space with
+<code class="docutils literal notranslate"><span class="pre">constraint:</span> <span class="pre">true</span></code>.</p></li>
+<li><p>Flag requirements arising from safety or cybersecurity considerations
+with the <code class="docutils literal notranslate"><span class="pre">concerns</span></code> field.</p></li>
+<li><p>Obtain independent review and approval before baseline.</p></li>
+</ol>
+<p><strong>Example</strong> — system requirement derived from a user need:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">req</span><span class="p">::</span> Control panel HMI element
+   <span class="nc">:level:</span> system
+   <span class="nc">:id:</span> REQ_SY_001
+   <span class="nc">:derives:</span> N_U_001
+
+   The system shall provide a control panel on the column.
+   The control panel is an HMI element that allows the user to set
+   the system&#39;s segment positions.
+</pre></div>
+</div>
+<p><strong>Example</strong> — system-level safety requirement (risk-control measure):</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">req</span><span class="p">::</span> Redundant button press detection
+   <span class="nc">:level:</span> system
+   <span class="nc">:id:</span> REQ_SY_M_001
+   <span class="nc">:concerns:</span> safety
+   <span class="nc">:mitigates:</span> RSK_001, HAZ_001
+   <span class="nc">:derives:</span> N_U_001
+
+   The system shall provide safe button press detection, such that
+   the system can be certain the user truly intends the commanded
+   table movement.
+</pre></div>
+</div>
+<p><strong>Traceability gate</strong>: All system requirements shall have a <code class="docutils literal notranslate"><span class="pre">derives</span></code>
+link to at least one <code class="docutils literal notranslate"><span class="pre">need</span></code> or to a risk-control decision documented
+in Phase 3.</p>
+</section>
+<section id="phase-3-system-architecture-and-preliminary-risk-analysis">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Phase 3 — System Architecture and Preliminary Risk Analysis</a><a class="headerlink" href="#phase-3-system-architecture-and-preliminary-risk-analysis" title="Link to this heading"></a></h3>
+<p>System design decisions are documented as <code class="docutils literal notranslate"><span class="pre">spec</span></code> artefacts at
+<code class="docutils literal notranslate"><span class="pre">level:</span> <span class="pre">system</span></code>. In parallel, a <strong>preliminary risk analysis</strong> (PRA)
+is performed over the emerging architecture.</p>
+<section id="phase-3a-system-design-specifications">
+<h4><a class="toc-backref" href="#id15" role="doc-backlink">Phase 3a — System Design Specifications</a><a class="headerlink" href="#phase-3a-system-design-specifications" title="Link to this heading"></a></h4>
+<p><strong>Activities</strong></p>
+<ol class="arabic simple">
+<li><p>Decompose the system into subsystems and functional blocks (e.g. via
+block diagrams and class diagrams authored in the design document).</p></li>
+<li><p>For each design decision that allocates or realises a system requirement,
+create a <code class="docutils literal notranslate"><span class="pre">spec</span></code> artefact linked to the requirement via <code class="docutils literal notranslate"><span class="pre">:implements:</span></code>.</p></li>
+<li><p>Have the architecture reviewed by the Systems Engineer and Risk Manager
+before the PRA.</p></li>
+</ol>
+<p><strong>Example</strong> — system-level specification:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">spec</span><span class="p">::</span> Power Guard
+   <span class="nc">:level:</span> system
+   <span class="nc">:id:</span> SPEC_SY_001
+   <span class="nc">:implements:</span> REQ_SY_M_001, ER_M_001
+   <span class="nc">:concerns:</span> safety
+
+   Power guard is an electronics-based mechanism that prevents motor
+   activation when no movement command is actively asserted.
+   It is realised redundantly on both the column controller and the
+   master controller; both must independently fail for the guard to
+   be defeated.
+</pre></div>
+</div>
+</section>
+<section id="phase-3b-preliminary-risk-analysis">
+<h4><a class="toc-backref" href="#id16" role="doc-backlink">Phase 3b — Preliminary Risk Analysis</a><a class="headerlink" href="#phase-3b-preliminary-risk-analysis" title="Link to this heading"></a></h4>
+<p>The PRA is conducted over the system architecture to identify hazards
+that the design may introduce, enable, or fail to prevent, following
+ISO 14971 clause 5.</p>
+<p><strong>Activities</strong></p>
+<ol class="arabic simple">
+<li><p>For each subsystem and interface, ask: <em>“What can go wrong, and how
+could it harm a patient, user, or bystander?”</em></p></li>
+<li><p>Document each source of potential harm as a <code class="docutils literal notranslate"><span class="pre">hazard</span></code> artefact.</p></li>
+<li><p>Document each combination of hazard situation, probability, and severity
+as a <code class="docutils literal notranslate"><span class="pre">risk</span></code> artefact, linked from the hazard via <code class="docutils literal notranslate"><span class="pre">:causes:</span></code>.</p></li>
+<li><p>For each unacceptable risk, derive one or more risk-control measure
+requirements (<code class="docutils literal notranslate"><span class="pre">req</span></code> with <code class="docutils literal notranslate"><span class="pre">concerns:</span> <span class="pre">safety</span></code>), linked via
+<code class="docutils literal notranslate"><span class="pre">:mitigates:</span></code>.</p></li>
+<li><p>Where a design decision already mitigates a risk, create a <code class="docutils literal notranslate"><span class="pre">spec</span></code>
+artefact with <code class="docutils literal notranslate"><span class="pre">concerns:</span> <span class="pre">safety</span></code> and <code class="docutils literal notranslate"><span class="pre">:mitigates:</span></code>.</p></li>
+<li><p>Feed new risk-control requirements back into the Phase 2 baseline before
+proceeding to Phase 4.</p></li>
+</ol>
+<p><strong>Example</strong> — hazard, risk, and risk-control measure:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">hazard</span><span class="p">::</span> Unintended table movement
+   <span class="nc">:id:</span> HAZ_001
+   <span class="nc">:probability:</span> medium
+
+   The table may move without a deliberate user command,
+   e.g. due to a single stuck button or spurious signal.
+
+<span class="p">..</span> <span class="ow">risk</span><span class="p">::</span> Patient injury due to unintended movement
+   <span class="nc">:id:</span> RSK_001
+   <span class="nc">:severity:</span> high
+   <span class="nc">:causes:</span> HAZ_001
+
+   Uncontrolled table movement can cause the patient to fall
+   or be crushed by a moving segment.
+
+<span class="p">..</span> <span class="ow">req</span><span class="p">::</span> Redundant button press detection
+   <span class="nc">:level:</span> system
+   <span class="nc">:id:</span> REQ_SY_M_001
+   <span class="nc">:concerns:</span> safety
+   <span class="nc">:mitigates:</span> RSK_001, HAZ_001
+
+   The system shall provide safe button press detection so that
+   the system can be certain the user truly intends the commanded
+   movement before acting on it.
+</pre></div>
+</div>
+<p><strong>Cybersecurity note</strong>: Where a threat identified during cybersecurity
+threat modelling (per <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-cybersec/html/sop-cybersec.html#sop-cybersec" title="(in SOP-Software — Cybersecurity Procedures v32e274c)"><span>SOP-Software — Cybersecurity Procedures</span></a>) can lead to a hazardous
+situation, the resulting risk-control requirement shall carry
+<code class="docutils literal notranslate"><span class="pre">concerns:</span> <span class="pre">safety,</span> <span class="pre">cybersecurity</span></code>.</p>
+<p><strong>Example</strong> — dual-concern risk-control requirement:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">req</span><span class="p">::</span> Authenticated firmware update channel
+   <span class="nc">:level:</span> system
+   <span class="nc">:id:</span> REQ_SY_SEC_001
+   <span class="nc">:concerns:</span> safety, cybersecurity
+   <span class="nc">:mitigates:</span> RSK_010
+
+   The system shall only accept firmware update packages that are
+   cryptographically signed by an authorised key.
+</pre></div>
+</div>
+<p><strong>Traceability gate</strong>: All <code class="docutils literal notranslate"><span class="pre">risk</span></code> artefacts shall have at least one
+mitigating <code class="docutils literal notranslate"><span class="pre">req</span></code> or <code class="docutils literal notranslate"><span class="pre">spec</span></code> before Phase 4 may begin.</p>
+</section>
+</section>
+<section id="phase-4-derive-software-requirements">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Phase 4 — Derive Software Requirements</a><a class="headerlink" href="#phase-4-derive-software-requirements" title="Link to this heading"></a></h3>
+<p>Software requirements specify the behaviour of the software element
+in terms that the software development team can implement and verify.
+They are assigned <code class="docutils literal notranslate"><span class="pre">level:</span> <span class="pre">software</span></code> (or <code class="docutils literal notranslate"><span class="pre">level:</span> <span class="pre">detailed_software</span></code>
+for fine-grained decomposition).</p>
+<p><strong>Activities</strong></p>
+<ol class="arabic simple">
+<li><p>Review all system requirements (<code class="docutils literal notranslate"><span class="pre">level:</span> <span class="pre">system</span></code>) and system design
+specifications (<code class="docutils literal notranslate"><span class="pre">level:</span> <span class="pre">system</span></code>) allocated to software.</p></li>
+<li><p>For each allocated item, derive one or more software requirements that
+collectively satisfy it.</p></li>
+<li><p>Link each software requirement to its parent(s) via <code class="docutils literal notranslate"><span class="pre">:derives:</span></code>.</p></li>
+<li><p>Propagate <code class="docutils literal notranslate"><span class="pre">concerns</span></code> and <code class="docutils literal notranslate"><span class="pre">mitigates</span></code> links from parent system-level
+risk-control requirements where the software requirement is the
+implementing mechanism.</p></li>
+<li><p>Assign a <code class="docutils literal notranslate"><span class="pre">release</span></code> milestone to prioritise the requirement.</p></li>
+<li><p>For design constraints (e.g. mandated OS, communication protocol),
+add <code class="docutils literal notranslate"><span class="pre">constraint:</span> <span class="pre">true</span></code>.</p></li>
+<li><p>Submit the software requirements baseline to independent review.</p></li>
+</ol>
+<p><strong>Example</strong> — software requirement derived from a system requirement:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">req</span><span class="p">::</span> Keep button pressed for moving
+   <span class="nc">:level:</span> software
+   <span class="nc">:release:</span> mvp
+   <span class="nc">:id:</span> REQ_SW_001
+   <span class="nc">:derives:</span> REQ_SY_001, REQ_SY_002
+
+   The software shall only move a segment while the corresponding
+   movement button is continuously held by the user, and shall stop
+   immediately upon button release.
+</pre></div>
+</div>
+<p><strong>Example</strong> — software-level risk-control requirement:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">req</span><span class="p">::</span> Drive command integrity check
+   <span class="nc">:level:</span> software
+   <span class="nc">:release:</span> mvp
+   <span class="nc">:id:</span> REQ_SW_M_002
+   <span class="nc">:concerns:</span> safety
+   <span class="nc">:mitigates:</span> RSK_001, HAZ_003
+   <span class="nc">:derives:</span> REQ_SY_M_001
+
+   The software shall encode drive commands with a verifiable
+   integrity code so that the motor actuator can detect and discard
+   corrupted commands.
+</pre></div>
+</div>
+<p><strong>Example</strong> — software constraint requirement:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">req</span><span class="p">::</span> C and C++ language for embedded control software
+   <span class="nc">:level:</span> software
+   <span class="nc">:id:</span> REQ_CON_001
+   <span class="nc">:constraint:</span> true
+
+   The embedded control software shall be implemented in C or C++
+   conforming to the project&#39;s applicable coding standard.
+</pre></div>
+</div>
+<p><strong>Traceability gate</strong>: Each software requirement shall carry a
+<code class="docutils literal notranslate"><span class="pre">:derives:</span></code> link to at least one system-level <code class="docutils literal notranslate"><span class="pre">req</span></code> or <code class="docutils literal notranslate"><span class="pre">spec</span></code>,
+or to a risk-control decision (<code class="docutils literal notranslate"><span class="pre">mitigates</span></code> link).</p>
+</section>
+<section id="phase-5-software-design-specifications">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Phase 5 — Software Design Specifications</a><a class="headerlink" href="#phase-5-software-design-specifications" title="Link to this heading"></a></h3>
+<p>Software design specifications describe <em>how</em> the software realises its
+requirements. They are assigned <code class="docutils literal notranslate"><span class="pre">level:</span> <span class="pre">software</span></code> (or
+<code class="docutils literal notranslate"><span class="pre">level:</span> <span class="pre">detailed_software</span></code> for unit-level design).</p>
+<p><strong>Activities</strong></p>
+<ol class="arabic simple">
+<li><p>For each software requirement or group of cohesive requirements, author
+one or more <code class="docutils literal notranslate"><span class="pre">spec</span></code> artefacts describing the design decision that
+implements them.</p></li>
+<li><p>Link each specification to the requirement(s) it implements via
+<code class="docutils literal notranslate"><span class="pre">:implements:</span></code>.</p></li>
+<li><p>Where the specification also constitutes a risk-control mechanism,
+add <code class="docutils literal notranslate"><span class="pre">concerns:</span> <span class="pre">safety</span></code> (and/or <code class="docutils literal notranslate"><span class="pre">cybersecurity</span></code>) and a
+<code class="docutils literal notranslate"><span class="pre">:mitigates:</span></code> link.</p></li>
+<li><p>Verify that no software requirement is left without a corresponding
+specification before the phase closes.</p></li>
+<li><p>Submit the design specification set to independent review.</p></li>
+</ol>
+<p><strong>Example</strong> — software design specification:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">spec</span><span class="p">::</span> Command message integrity check
+   <span class="nc">:level:</span> software
+   <span class="nc">:id:</span> SPEC_SW_005
+   <span class="nc">:implements:</span> REQ_SW_M_002
+   <span class="nc">:concerns:</span> safety
+
+   Drive commands transmitted over CAN shall include a CRC field
+   computed over the command payload.  The receiver shall discard
+   any command whose CRC does not match the payload, and shall
+   emit a diagnostic log entry.
+
+   CAN 2.0 hardware CRC covers transit errors; this application-level
+   CRC additionally covers logical content integrity.
+</pre></div>
+</div>
+<p><strong>Example</strong> — detailed software design specification:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">spec</span><span class="p">::</span> Motor stop on missing heartbeat
+   <span class="nc">:level:</span> detailed_software
+   <span class="nc">:id:</span> SPEC_SW_042
+   <span class="nc">:implements:</span> REQ_SW_F00, REQ_SW_G02
+   <span class="nc">:concerns:</span> safety
+
+   The motor controller firmware shall monitor a heartbeat signal
+   from the master controller with a period of 25 ms ± 5 ms.
+   If two consecutive heartbeats are missed, all motor outputs
+   shall be de-energised within one control cycle (≤ 10 ms).
+</pre></div>
+</div>
+<p><strong>Traceability gate</strong>: Every <code class="docutils literal notranslate"><span class="pre">spec</span></code> shall implement at least one
+<code class="docutils literal notranslate"><span class="pre">req</span></code>.  Every <code class="docutils literal notranslate"><span class="pre">req</span></code> at <code class="docutils literal notranslate"><span class="pre">level:</span> <span class="pre">software</span></code> shall be implemented
+by at least one <code class="docutils literal notranslate"><span class="pre">spec</span></code> before the design baseline is closed.</p>
+</section>
+<section id="phase-6-test-case-authoring">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Phase 6 — Test Case Authoring</a><a class="headerlink" href="#phase-6-test-case-authoring" title="Link to this heading"></a></h3>
+<p>Test cases provide objective evidence that software requirements are met.
+They are authored in parallel with, or immediately after, Phase 4.</p>
+<p><strong>Activities</strong></p>
+<ol class="arabic simple">
+<li><p>For each <code class="docutils literal notranslate"><span class="pre">req</span></code> at <code class="docutils literal notranslate"><span class="pre">level:</span> <span class="pre">software</span></code> or <code class="docutils literal notranslate"><span class="pre">level:</span> <span class="pre">detailed_software</span></code>,
+author at least one <code class="docutils literal notranslate"><span class="pre">test</span></code> artefact with a clear pass/fail criterion.</p></li>
+<li><p>Link each test to the requirement it verifies via <code class="docutils literal notranslate"><span class="pre">:verifies:</span></code>.</p></li>
+<li><p>For risk-control requirements (carrying <code class="docutils literal notranslate"><span class="pre">concerns:</span> <span class="pre">safety</span></code>), ensure
+that the test exercises the specific safety mechanism and that its
+result constitutes objective evidence of risk reduction.</p></li>
+<li><p>Follow <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-verif/html/sop-verif.html#sop-verif" title="(in SOP-Software — Verification Procedure v32e274c)"><span>SOP-Software — Verification Procedure</span></a> for test planning, execution, and evidence
+retention.</p></li>
+</ol>
+<p><strong>Example</strong> — test case:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">test</span><span class="p">::</span> Verify drive command CRC rejection
+   <span class="nc">:id:</span> TC_SW_M_002_01
+   <span class="nc">:verifies:</span> REQ_SW_M_002
+
+   <span class="gs">**Setup**</span>: Motor controller in Active state; CAN interface connected.
+
+   <span class="gs">**Action**</span>: Inject a drive command with a deliberately corrupted CRC.
+
+   <span class="gs">**Expected result**</span>: The motor controller discards the command,
+   no motor movement occurs, and a CRC-error diagnostic entry is logged.
+</pre></div>
+</div>
+<p><strong>Traceability gate</strong>: No software requirement carrying <code class="docutils literal notranslate"><span class="pre">concerns:</span> <span class="pre">safety</span></code>
+may be closed without at least one passing test result linked via
+<code class="docutils literal notranslate"><span class="pre">:verifies:</span></code>.</p>
+</section>
+</section>
+<section id="cyclic-improvement-and-re-entry-points">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">Cyclic Improvement and Re-entry Points</a><a class="headerlink" href="#cyclic-improvement-and-re-entry-points" title="Link to this heading"></a></h2>
+<p>This procedure is <strong>iterative</strong>, not waterfall.  The following events
+shall trigger a re-entry into the cycle at the appropriate phase:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Trigger</p></th>
+<th class="head"><p>Re-entry point</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>New or changed stakeholder need</p></td>
+<td><p>Phase 1; propagate changes forward through Phases 2–6.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Architecture change (e.g. new subsystem, new interface)</p></td>
+<td><p>Phase 3; repeat PRA over the changed area; update risk-control
+requirements; propagate through Phases 4–6.</p></td>
+</tr>
+<tr class="row-even"><td><p>New hazard or risk identified during implementation or test</p></td>
+<td><p>Phase 3b; derive risk-control requirement; propagate through Phases 4–6.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Software requirement gap identified during design (Phase 5)</p></td>
+<td><p>Phase 4; add missing requirement; update traceability.</p></td>
+</tr>
+<tr class="row-even"><td><p>Verification anomaly or test failure (Phase 6)</p></td>
+<td><p>Phase 4 or 5, depending on whether the root cause is a missing
+requirement or a design error.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Change request or problem report post-release</p></td>
+<td><p>Phase 2 or 3, depending on whether the root cause is at system
+or design level.</p></td>
+</tr>
+</tbody>
+</table>
+<p>All re-entries shall be documented with a change rationale referencing
+the triggering problem report, risk record, or change request.  Impacts
+on the risk management file shall be assessed per ISO 14971 clause 10.</p>
+</section>
+<section id="traceability-completeness-checks">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">Traceability Completeness Checks</a><a class="headerlink" href="#traceability-completeness-checks" title="Link to this heading"></a></h2>
+<p>The Sphinx build enforces the following automated checks via
+sphinx-needs schema validation and constraint rules.  A build failure
+or warning in any of these checks blocks promotion to the next milestone.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 45.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Check</p></th>
+<th class="head"><p>Failing condition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">req-level-required</span></code></p></td>
+<td><p>A <code class="docutils literal notranslate"><span class="pre">req</span></code> artefact is missing the <code class="docutils literal notranslate"><span class="pre">level</span></code> field.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">need-category-required</span></code></p></td>
+<td><p>A <code class="docutils literal notranslate"><span class="pre">need</span></code> artefact is missing the <code class="docutils literal notranslate"><span class="pre">category</span></code> field.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">concerns-valid-values</span></code></p></td>
+<td><p>A <code class="docutils literal notranslate"><span class="pre">concerns</span></code> field contains a value other than <code class="docutils literal notranslate"><span class="pre">safety</span></code> or
+<code class="docutils literal notranslate"><span class="pre">cybersecurity</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sw_req_must_have_test</span></code></p></td>
+<td><p>A <code class="docutils literal notranslate"><span class="pre">req</span></code> at <code class="docutils literal notranslate"><span class="pre">level:</span> <span class="pre">software</span></code> has no incoming <code class="docutils literal notranslate"><span class="pre">verifies</span></code> link.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">risk_must_have_control</span></code></p></td>
+<td><p>A <code class="docutils literal notranslate"><span class="pre">risk</span></code> artefact has no incoming <code class="docutils literal notranslate"><span class="pre">mitigates</span></code> link.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">risk_control_must_be_tested</span></code></p></td>
+<td><p>A requirement with <code class="docutils literal notranslate"><span class="pre">origin:</span> <span class="pre">risk_control</span></code> has no incoming
+<code class="docutils literal notranslate"><span class="pre">verifies</span></code> link.</p></td>
+</tr>
+</tbody>
+</table>
+<p>In addition, the traceability matrix in the project’s system-level and
+software-level documents shall be reviewed manually at each milestone
+gate to confirm end-to-end coverage from <code class="docutils literal notranslate"><span class="pre">need</span></code> through <code class="docutils literal notranslate"><span class="pre">test</span></code>.</p>
+</section>
+<section id="records">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">Records</a><a class="headerlink" href="#records" title="Link to this heading"></a></h2>
+<p>The following records shall be retained as controlled documents:</p>
+<ul class="simple">
+<li><p>Requirements baseline (system and software <code class="docutils literal notranslate"><span class="pre">req</span></code> artefacts)</p></li>
+<li><p>Design specification baseline (system and software <code class="docutils literal notranslate"><span class="pre">spec</span></code> artefacts)</p></li>
+<li><p>Risk management records (<code class="docutils literal notranslate"><span class="pre">hazard</span></code> and <code class="docutils literal notranslate"><span class="pre">risk</span></code> artefacts and their
+mitigating links)</p></li>
+<li><p>Traceability reports generated by the Sphinx build</p></li>
+<li><p>Review evidence (pull request discussions, sign-off commits)</p></li>
+<li><p>Test specifications and executed test results (per <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-verif/html/sop-verif.html#sop-verif" title="(in SOP-Software — Verification Procedure v32e274c)"><span>SOP-Software — Verification Procedure</span></a>)</p></li>
+</ul>
+<p>All records are stored in the Git repository and published as part of the
+Sphinx-rendered documentation per <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-docctl/html/sop-docctl.html#sop-docctl" title="(in Software Lifecycle Documentation Control Procedure v32e274c)"><span>Software Lifecycle Documentation Control Procedure</span></a>.</p>
+</section>
+<section id="iec-62304-clause-mapping">
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">IEC 62304 Clause Mapping</a><a class="headerlink" href="#iec-62304-clause-mapping" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 45.0%" />
+<col style="width: 20.0%" />
+<col style="width: 35.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Activity</p></th>
+<th class="head"><p>IEC 62304 Clause</p></th>
+<th class="head"><p>Covered by Phase</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Software requirements analysis</p></td>
+<td><p>5.2</p></td>
+<td><p>Phase 2, Phase 4</p></td>
+</tr>
+<tr class="row-odd"><td><p>Software architectural design</p></td>
+<td><p>5.3</p></td>
+<td><p>Phase 3a, Phase 5</p></td>
+</tr>
+<tr class="row-even"><td><p>Software detailed design</p></td>
+<td><p>5.4</p></td>
+<td><p>Phase 5 (detailed_software level)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Software unit implementation</p></td>
+<td><p>5.5</p></td>
+<td><p><a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-impl/html/sop-impl.html#sop-impl" title="(in SOP-Software — Implementation Procedure v32e274c)"><span>SOP-Software — Implementation Procedure</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Software integration and verification</p></td>
+<td><p>5.6</p></td>
+<td><p>Phase 6, <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-verif/html/sop-verif.html#sop-verif" title="(in SOP-Software — Verification Procedure v32e274c)"><span>SOP-Software — Verification Procedure</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Software risk management contribution</p></td>
+<td><p>4.2 / ISO 14971 cl.10</p></td>
+<td><p>Phase 3b</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="deviations">
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">Deviations</a><a class="headerlink" href="#deviations" title="Link to this heading"></a></h2>
+<p>Any deviation from this procedure shall be documented with a rationale,
+risk assessment, and approval per the <a class="reference external" href="https://tiacsys.github.io/lean-qms/get-it-running/sop-docctl/html/sop-docctl.html#sop-docctl" title="(in Software Lifecycle Documentation Control Procedure v32e274c)"><span>Software Lifecycle Documentation Control Procedure</span></a> change
+control process.</p>
+</section>
+<section id="glossary">
+<h2><a class="toc-backref" href="#id25" role="doc-backlink">Glossary</a><a class="headerlink" href="#glossary" title="Link to this heading"></a></h2>
+<section id="general-terms">
+<h3><a class="toc-backref" href="#id26" role="doc-backlink">General Terms</a><a class="headerlink" href="#general-terms" title="Link to this heading"></a></h3>
+<dl class="simple glossary">
+<dt id="term-CAPA">CAPA<a class="headerlink" href="#term-CAPA" title="Link to this term"></a></dt><dd><p>Corrective and Preventive Action, formal process required by
+FDA Quality System Regulation (21 CFR 820), and
+ISO 62304, MDR 2017/745</p>
+</dd>
+<dt id="term-CVE">CVE<a class="headerlink" href="#term-CVE" title="Link to this term"></a></dt><dd><p>Common Vulnerability Exposure, publicly know vulnerability of a software
+element.</p>
+</dd>
+<dt id="term-DSwDS">DSwDS<a class="headerlink" href="#term-DSwDS" title="Link to this term"></a></dt><dd><p>Detailed Software Design Specification, a document that contains the
+detailed software design for a software system.</p>
+</dd>
+<dt id="term-DSwRS">DSwRS<a class="headerlink" href="#term-DSwRS" title="Link to this term"></a></dt><dd><p>Detailed Software Requirements Specification, a document that contains the
+detailed software requirements for a software system.</p>
+</dd>
+<dt id="term-FMEA">FMEA<a class="headerlink" href="#term-FMEA" title="Link to this term"></a></dt><dd><p>Failure Mode and Effects Analysis, a systematic approach to identify potential failure modes,
+their causes and effects, and to prioritize them based on their severity, occurrence, and detectability.</p>
+</dd>
+<dt id="term-FTA">FTA<a class="headerlink" href="#term-FTA" title="Link to this term"></a></dt><dd><p>Fault Tree Analysis, a top-down approach to identify the root causes of a failure.</p>
+</dd>
+<dt id="term-HMI">HMI<a class="headerlink" href="#term-HMI" title="Link to this term"></a></dt><dd><p>Human-Machine Interface</p>
+</dd>
+<dt id="term-Risk-Control-Measure">Risk Control Measure<a class="headerlink" href="#term-Risk-Control-Measure" title="Link to this term"></a></dt><dd><p>A measure implemented to reduce the risk of a hazardous situation to an acceptable level.</p>
+</dd>
+<dt id="term-Software-Hazard">Software Hazard<a class="headerlink" href="#term-Software-Hazard" title="Link to this term"></a></dt><dd><p>A software state that, in combination with a particular set of conditions, can lead to a hazardous situation.</p>
+</dd>
+<dt id="term-Software-Risk-Class">Software Risk Class<a class="headerlink" href="#term-Software-Risk-Class" title="Link to this term"></a></dt><dd><p>A classification of software based on the severity of the harm that can be caused by a software failure,
+and the probability of occurrence of such a failure.</p>
+</dd>
+<dt id="term-SouP">SouP<a class="headerlink" href="#term-SouP" title="Link to this term"></a></dt><dd><p>Software of Unknown Provenance — pre-existing software that is integrated
+into a medical device software product without the manufacturer having
+performed the full software development lifecycle activities for that
+component.  Includes open-source libraries, third-party packages, SDKs,
+operating system components, and vendor-supplied firmware HALs.</p>
+</dd>
+<dt id="term-SwDS">SwDS<a class="headerlink" href="#term-SwDS" title="Link to this term"></a></dt><dd><p>Software Design Specification, a document that contains the software design
+for a software system.</p>
+</dd>
+<dt id="term-SwRAR">SwRAR<a class="headerlink" href="#term-SwRAR" title="Link to this term"></a></dt><dd><p>Software Risk Assessment Report is a document that contains the results of the software risk assessment,
+including the identified software hazards.</p>
+</dd>
+<dt id="term-SwRS">SwRS<a class="headerlink" href="#term-SwRS" title="Link to this term"></a></dt><dd><p>Software Requirements Specification, a document that contains the software
+requirements for a software system.</p>
+</dd>
+</dl>
+</section>
+<section id="qms-document-types">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">QMS Document Types</a><a class="headerlink" href="#qms-document-types" title="Link to this heading"></a></h3>
+<p>No QMS document types defined.</p>
+</section>
+<section id="identifier-prefixes">
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">Identifier Prefixes</a><a class="headerlink" href="#identifier-prefixes" title="Link to this heading"></a></h3>
+<dl class="simple glossary">
+<dt id="term-CON">CON<a class="headerlink" href="#term-CON" title="Link to this term"></a></dt><dd><p>Constraint</p>
+</dd>
+<dt id="term-ELR">ELR<a class="headerlink" href="#term-ELR" title="Link to this term"></a></dt><dd><p>Electronic/Electrical Requirement</p>
+</dd>
+<dt id="term-HAZ">HAZ<a class="headerlink" href="#term-HAZ" title="Link to this term"></a></dt><dd><p>Hazard intrinsic to the system or user</p>
+</dd>
+<dt id="term-RSK">RSK<a class="headerlink" href="#term-RSK" title="Link to this term"></a></dt><dd><p>Risk imposed to the system or user</p>
+</dd>
+<dt id="term-SWR">SWR<a class="headerlink" href="#term-SWR" title="Link to this term"></a></dt><dd><p>Software Requirement</p>
+</dd>
+<dt id="term-SWS">SWS<a class="headerlink" href="#term-SWS" title="Link to this term"></a></dt><dd><p>Software Specification</p>
+</dd>
+<dt id="term-SYR">SYR<a class="headerlink" href="#term-SYR" title="Link to this term"></a></dt><dd><p>System Requirement</p>
+</dd>
+<dt id="term-SYS">SYS<a class="headerlink" href="#term-SYS" title="Link to this term"></a></dt><dd><p>System Specification</p>
+</dd>
+<dt id="term-TC">TC<a class="headerlink" href="#term-TC" title="Link to this term"></a></dt><dd><p>Test Case</p>
+</dd>
+<dt id="term-UN">UN<a class="headerlink" href="#term-UN" title="Link to this term"></a></dt><dd><p>User Need</p>
+</dd>
+</dl>
+<dl class="simple glossary">
+<dt id="term-Stakeholder-Need">Stakeholder Need<a class="headerlink" href="#term-Stakeholder-Need" title="Link to this term"></a></dt><dd><p>A high-level statement of a goal, expectation, or constraint expressed
+by a user, operator, or other affected party, independent of any solution.
+Captured using the <code class="docutils literal notranslate"><span class="pre">need</span></code> artefact type (prefix <code class="docutils literal notranslate"><span class="pre">N_</span></code>).</p>
+</dd>
+<dt id="term-System-Requirement">System Requirement<a class="headerlink" href="#term-System-Requirement" title="Link to this term"></a></dt><dd><p>A solution-neutral, verifiable statement of what the system as a whole
+shall do or be, derived from stakeholder needs or risk-control decisions.
+Captured using the <code class="docutils literal notranslate"><span class="pre">req</span></code> artefact type at <code class="docutils literal notranslate"><span class="pre">level:</span> <span class="pre">system</span></code>
+(prefix <code class="docutils literal notranslate"><span class="pre">REQ_</span></code>).</p>
+</dd>
+<dt id="term-System-Specification">System Specification<a class="headerlink" href="#term-System-Specification" title="Link to this term"></a></dt><dd><p>A design decision at system level describing <em>how</em> the system realises
+one or more system requirements — typically architectural in nature.
+Captured using the <code class="docutils literal notranslate"><span class="pre">spec</span></code> artefact type at <code class="docutils literal notranslate"><span class="pre">level:</span> <span class="pre">system</span></code>
+(prefix <code class="docutils literal notranslate"><span class="pre">SPEC_SY_</span></code>).</p>
+</dd>
+<dt id="term-Software-Requirement">Software Requirement<a class="headerlink" href="#term-Software-Requirement" title="Link to this term"></a></dt><dd><p>A verifiable statement of what the software element shall do, derived
+from system requirements or from system design decisions.
+Captured using the <code class="docutils literal notranslate"><span class="pre">req</span></code> artefact type at <code class="docutils literal notranslate"><span class="pre">level:</span> <span class="pre">software</span></code>
+(prefix <code class="docutils literal notranslate"><span class="pre">REQ_</span></code>).</p>
+</dd>
+<dt id="term-Software-Design-Specification">Software Design Specification<a class="headerlink" href="#term-Software-Design-Specification" title="Link to this term"></a></dt><dd><p>A design decision describing how a software element realises one or more
+software requirements.
+Captured using the <code class="docutils literal notranslate"><span class="pre">spec</span></code> artefact type at <code class="docutils literal notranslate"><span class="pre">level:</span> <span class="pre">software</span></code>
+(prefix <code class="docutils literal notranslate"><span class="pre">SPEC_SW_</span></code>).</p>
+</dd>
+<dt id="term-Hazard">Hazard<a class="headerlink" href="#term-Hazard" title="Link to this term"></a></dt><dd><p>A potential source of harm to a patient, user, or third party.
+Captured using the <code class="docutils literal notranslate"><span class="pre">hazard</span></code> artefact type (prefix <code class="docutils literal notranslate"><span class="pre">HAZ_</span></code>).</p>
+</dd>
+<dt id="term-Risk">Risk<a class="headerlink" href="#term-Risk" title="Link to this term"></a></dt><dd><p>The combination of the probability of occurrence of a hazard-related
+situation and its severity.
+Captured using the <code class="docutils literal notranslate"><span class="pre">risk</span></code> artefact type (prefix <code class="docutils literal notranslate"><span class="pre">RSK_</span></code>).</p>
+</dd>
+<dt id="term-0">Risk-Control Measure<a class="headerlink" href="#term-0" title="Link to this term"></a></dt><dd><p>A design decision or requirement intended to reduce a risk to an
+acceptable level. Implemented as a <code class="docutils literal notranslate"><span class="pre">req</span></code> or <code class="docutils literal notranslate"><span class="pre">spec</span></code> artefact with
+a <code class="docutils literal notranslate"><span class="pre">mitigates</span></code> link to the relevant <code class="docutils literal notranslate"><span class="pre">risk</span></code> or <code class="docutils literal notranslate"><span class="pre">hazard</span></code>.</p>
+</dd>
+<dt id="term-Concerns">Concerns<a class="headerlink" href="#term-Concerns" title="Link to this term"></a></dt><dd><p>A cross-cutting domain classification applied to requirements and
+specifications that contribute to safety or cybersecurity.
+Valid values: <code class="docutils literal notranslate"><span class="pre">safety</span></code>, <code class="docutils literal notranslate"><span class="pre">cybersecurity</span></code>.</p>
+</dd>
+<dt id="term-Traceability-Link">Traceability Link<a class="headerlink" href="#term-Traceability-Link" title="Link to this term"></a></dt><dd><p>A directed relationship between two artefacts expressing a semantic
+dependency. See <a class="reference internal" href="#sop-req-design-links"><span class="std std-ref">Traceability Links</span></a>.</p>
+</dd>
+<dt id="term-Design-Constraint">Design Constraint<a class="headerlink" href="#term-Design-Constraint" title="Link to this term"></a></dt><dd><p>A requirement that narrows the solution space by mandating a specific
+technology, platform, or architectural choice.
+Marked with the <code class="docutils literal notranslate"><span class="pre">constraint:</span> <span class="pre">true</span></code> field.</p>
+</dd>
+<dt id="term-Preliminary-Risk-Analysis">Preliminary Risk Analysis<a class="headerlink" href="#term-Preliminary-Risk-Analysis" title="Link to this term"></a></dt><dd><p>A risk analysis performed during system design to identify hazards
+introduced or influenced by design decisions, before detailed software
+requirements are written.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="SOP — Software Requirement and Design Procedure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, TiaC Systems.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
