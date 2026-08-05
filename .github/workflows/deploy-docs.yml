@@ -1,0 +1,86 @@
+name: Deploy Sphinx Documentation to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - "feature/**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: false
+
+      - name: Set deployment path and base URL
+        env:
+          REF_NAME: ${{ github.ref_name }}
+          QMS_BASE_URL: ${{ vars.QMS_BASE_URL }}
+          DEFAULT_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+        run: |
+          # All ten sub-projects (qms-overview, sop-docctl, sop-swdp,
+          # sop-req_design, sop-impl, sop-verif, sop-cybersec, sop-toolval,
+          # sop-soupval, ptcc_kempert-volker_001) deploy as flat siblings
+          # under the gh-pages branch: <destination_dir>/<name>. main
+          # deploys at the branch root; feature/<branch> deploys into its
+          # own subfolder (keep_files: true on the publish step keeps
+          # every other subfolder untouched), so multiple in-progress
+          # branches can coexist on the published site.
+          #
+          # QMS_BASE_URL (repository variable) overrides the public base
+          # URL these docs are served from, e.g. when a custom domain is
+          # configured for Pages. If unset, it defaults to the standard
+          # <owner>.github.io/<repo> Pages URL.
+          BASE="${QMS_BASE_URL:-$DEFAULT_BASE_URL}"
+          if [[ "$REF_NAME" == "main" ]]; then
+            echo "DEPLOY_ROOT=." >> "$GITHUB_ENV"
+            echo "BASE_URL=$BASE" >> "$GITHUB_ENV"
+          else
+            SUBDIR="${REF_NAME#feature/}"
+            echo "DEPLOY_ROOT=$SUBDIR" >> "$GITHUB_ENV"
+            echo "BASE_URL=$BASE/$SUBDIR" >> "$GITHUB_ENV"
+            echo "DRAFT_DEPLOY=1" >> "$GITHUB_ENV"
+          fi
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r _shared/requirements.txt
+
+      - name: Build all sub-projects (build.py)
+        run: |
+          ./build.py html --base-url "${{ env.BASE_URL }}"
+
+      - name: Add root redirect page
+        run: cp ./_shared/root_index.html ./_build/index.html
+
+      - name: Publish to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./_build
+          destination_dir: ${{ env.DEPLOY_ROOT }}
+          keep_files: true
+
+      - name: Show deployment URLs
+        run: |
+          echo "root (redirects to qms-overview): ${{ env.BASE_URL }}/index.html"
+          echo "base URL is: ${{ env.BASE_URL }}"
+          echo "deployment folder (gh-pages branch): ${{ env.DEPLOY_ROOT }}"
