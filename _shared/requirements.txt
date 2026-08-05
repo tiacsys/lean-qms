@@ -1,0 +1,9 @@
+sphinx
+pyyaml
+sphinxcontrib-plantuml
+sphinxcontrib-mermaid
+sphinxcontrib-httpdomain
+sphinx_rtd_theme
+# markdown parser for Sphinx see https://myst-parser.readthedocs.io/en/latest/
+# myst-parser
+sphinx-git
