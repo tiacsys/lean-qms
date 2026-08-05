@@ -57,6 +57,8 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.12"
+          cache: pip
+          cache-dependency-path: _shared/requirements.txt
 
       - name: Install dependencies
         run: |
@@ -69,6 +71,46 @@ jobs:
 
       - name: Add root redirect page
         run: cp ./_shared/root_index.html ./_build/index.html
+
+      - name: Clear stale files before redeploy
+        run: |
+          set -e
+          # peaceiris/actions-gh-pages with keep_files: true only overlays
+          # new files, it never deletes ones that are no longer produced
+          # (e.g. a renamed/removed page). Before publishing, remove just
+          # the top-level entries inside DEPLOY_ROOT that this build is
+          # about to replace (the sub-project dirs and index.html) so
+          # stale leftovers don't linger. Anything else under DEPLOY_ROOT,
+          # and every sibling DEPLOY_ROOT (other branches' previews), is
+          # left untouched.
+          if git ls-remote --exit-code --heads origin gh-pages >/dev/null 2>&1; then
+            git fetch origin gh-pages
+            git worktree add --detach gh-pages-clean origin/gh-pages
+
+            TARGET="gh-pages-clean/$DEPLOY_ROOT"
+            CHANGED=0
+            if [ -d "$TARGET" ]; then
+              for entry in _build/*; do
+                name="$(basename "$entry")"
+                if [ -e "$TARGET/$name" ]; then
+                  rm -rf "$TARGET/$name"
+                  CHANGED=1
+                fi
+              done
+            fi
+
+            if [ "$CHANGED" = "1" ] && [ -n "$(git -C gh-pages-clean status --porcelain)" ]; then
+              git -C gh-pages-clean config user.name "github-actions[bot]"
+              git -C gh-pages-clean config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+              git -C gh-pages-clean add -A
+              git -C gh-pages-clean commit -m "Clear stale files in $DEPLOY_ROOT before redeploy"
+              git -C gh-pages-clean push origin HEAD:gh-pages
+            fi
+
+            git worktree remove gh-pages-clean --force
+          else
+            echo "gh-pages branch does not exist yet, nothing to clear."
+          fi
 
       - name: Publish to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
