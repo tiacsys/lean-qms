@@ -1,0 +1,119 @@
+# Central cross-document reference registry for qms-base's Sphinx sub-projects.
+#
+# Every sub-project (see build.py) is described here ONCE. Each conf.py loads
+# this file through the `docrefs` helper (_shared/docrefs.py) and derives its
+# cross-document links from it. This file lives at the qms-base repo root so
+# it applies uniformly to sub-projects nested under docs/ at any depth
+# (docs/qms-overview, docs/sop/<id>, docs/records/<id>):
+#
+#   * reference_groups    (nav sidebar, html_context)  -> every OTHER document
+#   * intersphinx_mapping                               -> every OTHER document
+#
+# To add a cross-reference target, add an entry here — nothing in any conf.py
+# needs to change. build.py also reads this file (via `docrefs.py list`) so
+# its project registry and the PDF/no-PDF split stay in sync with the same
+# source of truth.
+#
+# Documents are organized into named groups (see the top-level `groups:`
+# list). The nav renders one heading per group, in `groups:` order, listing
+# that group's documents in registry order. Groups are defined ONLY here —
+# nothing is hardcoded in Python/templates.
+#
+# Fields per group:
+#   dir    Docs subdirectory this group's sub-projects live under, relative
+#          to docs/ (e.g. "sop", "records"). Omit (or leave "") for groups
+#          whose documents sit directly under docs/<id> (e.g. qms-overview).
+#          A document's confdir is therefore docs/<group.dir>/<id> — read by
+#          build.py via `docrefs.py list`.
+#   mode   How this group's nav links behave on a page that's itself a
+#          member of the group (default: "exclude_if_selected"):
+#            exclude_if_selected     the current page is excluded from its
+#                                    own group's links (a page doesn't link
+#                                    to itself).
+#            single_doc_title_merge  same exclusion, for a group whose
+#                                    membership always resolves to exactly
+#                                    one document — that link then renders
+#                                    merged into the caption instead of a
+#                                    caption + one-item list.
+#            always_keep             every document in the group is always
+#                                    listed, including the current page.
+#   display  Whether/how this group's nav section can be collapsed
+#            (default: "disabled_collapsing"):
+#              disabled_collapsing       no expand/collapse control; the
+#                                        group is always fully shown.
+#              collapsed_at_opening      collapsible, starts collapsed.
+#              not_collapsed_at_opening  collapsible, starts expanded.
+#              no-display                the group isn't shown at all.
+#
+# Fields per document:
+#   title  Human-readable name shown in the nav and used as `project` in conf.py.
+#   group  Id of the group this document belongs to (MUST be a declared group).
+#   pdf    Whether build.py's 'pdf'/'all' targets build a PDF for this
+#          document (default: true). Set false for informational-only
+#          documents that aren't a controlled record (currently just
+#          qms-overview).
+#   path   Deploy subdir, relative to _build/ (default: "<id>/html").
+#
+# base_url is the deployment root; override at build time with the
+# DOCS_BASE_URL environment variable (build.py's --base-url), falling back to
+# an absolute file:// path to the local _build/ output when unset.
+
+base_url: ""
+
+groups:
+  - id: overview
+    title: "Overview"
+    mode: "single_doc_title_merge"
+    display: "disabled_collapsing"
+  - id: sops
+    title: "Standard Operating Procedures"
+    dir: sop
+    mode: "exclude_if_selected"
+    display: "disabled_collapsing"
+  - id: records
+    title: "Records"
+    dir: records
+    mode: "always_keep"
+    display: "collapsed_at_opening"
+
+documents:
+  qms-overview:
+    title: "QMS Overview"
+    group: overview
+    pdf: false
+
+  sop-docctl:
+    title: "SOP Document Control"
+    group: sops
+
+  sop-swdp:
+    title: "SOP Software Development Procedure"
+    group: sops
+
+  sop-req_design:
+    title: "SOP Requirement and Design"
+    group: sops
+
+  sop-impl:
+    title: "SOP Implementation"
+    group: sops
+
+  sop-verif:
+    title: "SOP Verification"
+    group: sops
+
+  sop-cybersec:
+    title: "SOP Cybersecurity"
+    group: sops
+
+  sop-toolval:
+    title: "SOP Tool Validation"
+    group: sops
+
+  sop-soupval:
+    title: "SOP SouP Validation"
+    group: sops
+
+  ptcc_kempert-volker_001:
+    title: "PTCC - Volker Kempert"
+    group: records
