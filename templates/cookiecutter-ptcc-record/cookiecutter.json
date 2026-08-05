@@ -1,0 +1,22 @@
+{
+    "first_name": "Jane",
+    "last_name": "Doe",
+    "email": "jane.doe@example.com",
+    "role": "Software Engineer",
+    "department": "RnD",
+    "document_version": "001",
+    "gpg_fingerprint": "pub   ed25519/XXXXXXXXXXXXXXXX YYYY-MM-DD [SC]|      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|uid   [ultimate] Jane Doe (general purpose) <jane.doe@example.com>|sub   cv25519/XXXXXXXXXXXXXXXX YYYY-MM-DD [E]",
+    "__full_name": "{{ cookiecutter.first_name }} {{ cookiecutter.last_name }}",
+    "__document_id": "ptcc_{{ cookiecutter.last_name | lower | replace(' ', '-') }}-{{ cookiecutter.first_name | lower | replace(' ', '-') }}",
+    "__folder_name": "{{ cookiecutter.__document_id }}_{{ cookiecutter.document_version }}",
+    "__autosectionlabel_prefix": "qms_{{ cookiecutter.__document_id | replace('-', '_') }}_{{ cookiecutter.document_version }}",
+    "__prompts__": {
+        "first_name": "First name",
+        "last_name": "Last name",
+        "email": "Email address",
+        "role": "Responsibility / Role",
+        "department": "Department / Team / Company",
+        "document_version": "Record edition, three digits starting at '001' (a re-confirmation gets its own '002', '003', ... folder)",
+        "gpg_fingerprint": "GPG signature public fingerprint block — join its lines with '|' (e.g. 'pub ...|      ...|uid ...|sub ...')"
+    }
+}
